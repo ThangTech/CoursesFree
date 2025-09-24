@@ -93,7 +93,7 @@ body{
        justify-content: flex-end;
        align-items: center;
        width: 60%;
-       gap: 18px;;
+       gap: 18px;
 }
 .header-right a{
        font-size: 18px;
