@@ -1,0 +1,110 @@
+*{
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+}
+:root{
+        --bs-green: #04AA60;
+        --bs-teal: #20c997;
+        --bs-black: #282A35;
+        --bs-pink: #FFC0C7;
+        --bs-yellow: #FFF4A3;
+        --bs-white: #fff;
+}
+header{
+       height: 70px;
+       background-color: var(--bs-white);   
+       width: 100%;
+       padding: 0px 20px;
+       display: flex; 
+       align-items: center;
+}
+body{
+       width: 100%;
+}
+/* utility class */
+.btn{
+       padding: 10px;
+       cursor: pointer
+}
+.bg-black{
+       background-color: var(--bs-black);
+       color: var(--bs-white);
+}
+.bg-pink{
+       background-color: var(--bs-pink);
+       color: var(--bs-black);
+}
+.bg-yellow{
+       background-color: var(--bs-yellow);
+       color: var(--bs-black)
+}
+.bg-green{
+       background-color: var(--bs-green);
+       color: var(--bs-white);
+}
+/* logo */
+.logo{
+       width: 50px;
+       padding: 2px 8px;
+       margin-right: 5px;
+}
+.logo img{
+       width: 100%;
+}
+.header-left{
+       display: flex;
+       align-items: center;
+       height: 100%;
+
+}
+.header-left a{
+       height: 100%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       padding: 0px 20px;
+       font-size: 18px;
+       font-weight: 600;
+       color: black;
+       text-decoration: none;
+}
+.header-left a:hover{
+       background-color: var(--bs-green);
+       color: white;
+}
+.header-left a:first-child:hover{
+       background-color: transparent;
+}
+.header-left a:first-child{
+       padding: 0;
+}
+.fa-solid {
+       padding: 0px 3px;
+}
+.toggleLightDark{
+       transform: rotate(180deg);
+}
+.toggleLightDark:hover{
+       color: var(--bs-teal)
+}
+.header-right{
+       display: flex;
+       justify-content: flex-end;
+       align-items: center;
+       width: 60%;
+       gap: 18px;;
+}
+.header-right a{
+       font-size: 18px;
+       font-weight: 600px;
+       text-decoration: none;
+       border-radius: 60px;
+       padding: 10px 20px;
+}
+.header-right a:last-child{
+       padding: 10px 45px;
+}
+.header-right a:hover{
+       opacity: 0.8;
+}
