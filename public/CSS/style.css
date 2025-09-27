@@ -58,7 +58,7 @@ body{
        height: 100%;
 
 }
-.header-left a{
+.header-left .menu-btn{
        height: 100%;
        display: flex;
        align-items: center;
@@ -69,14 +69,14 @@ body{
        color: black;
        text-decoration: none;
 }
-.header-left a:hover{
+.header-left .menu-btn:hover{
        background-color: var(--bs-green);
        color: white;
 }
-.header-left a:first-child:hover{
+.header-left .menu-btn:first-child:hover{
        background-color: transparent;
 }
-.header-left a:first-child{
+.header-left .menu-btn:first-child{
        padding: 0;
 }
 .fa-solid {
@@ -92,7 +92,7 @@ body{
        display: flex;
        justify-content: flex-end;
        align-items: center;
-       width: 60%;
+       flex-grow: 1;
        gap: 18px;
 }
 .header-right a{
@@ -101,10 +101,79 @@ body{
        text-decoration: none;
        border-radius: 60px;
        padding: 10px 20px;
-}
-.header-right a:last-child{
-       padding: 10px 45px;
+       min-width: 80px;
 }
 .header-right a:hover{
        opacity: 0.8;
+}
+#forteacher-btn{
+       display: none;
+}
+#cectificate-btn,
+#video-btn{
+       display: none;
+}
+#free-btn{
+       display: none;
+}
+#tutorial-btn,
+#refernces-btn,
+#excercises-btn{
+       display: none;
+       }
+#menu-btn-Mobile{
+       display: flex;
+       }
+.toggleLightDark{
+       display: none;
+       }
+.toggleSearch,
+.toggleTranslate{
+        display: none;
+       }
+
+/* responsive */
+@media all and (min-width: 1305px) {
+       #forteacher-btn{
+              display: block;
+       }
+}
+@media all and (min-width: 1200px) {
+       #cectificate-btn{
+              display: block;
+       }
+       #video-btn{
+              display: flex;
+       }
+}
+@media all and (min-width: 950px) {
+       #free-btn{
+              display: block;
+       }
+}
+@media all and (min-width: 850px) {
+       #tutorial-btn,
+       #refernces-btn,
+       #excercises-btn{
+              display: flex;
+       }
+       #menu-btn-Mobile{
+              display: none;
+       }
+}
+@media all and (min-width: 600px) {
+       .toggleLightDark{
+              display: block;
+       }
+}
+@media all and (min-width: 425px) {
+       .header-right a:last-child{
+              padding: 10px 45px;
+       }
+}
+@media all and (min-width: 370px) {
+       .toggleSearch,
+       .toggleTranslate{
+              display: block;
+       }
 }
