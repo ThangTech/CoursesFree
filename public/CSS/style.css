@@ -10,6 +10,7 @@
         --bs-pink: #FFC0C7;
         --bs-yellow: #FFF4A3;
         --bs-white: #fff;
+        --bs-neoWhite: #E7E9EB;
 }
 header{
        height: 70px;
@@ -21,6 +22,7 @@ header{
 }
 body{
        width: 100%;
+       font-family: 'Roboto',sans-serif;
 }
 /* utility class */
 .btn{
@@ -45,7 +47,7 @@ body{
 }
 /* logo */
 .logo{
-       width: 50px;
+       width: 90px;
        padding: 2px 8px;
        margin-right: 5px;
 }
@@ -65,7 +67,7 @@ body{
        justify-content: center;
        padding: 0px 20px;
        font-size: 18px;
-       font-weight: 600;
+       font-weight: 300;
        color: black;
        text-decoration: none;
 }
@@ -175,5 +177,52 @@ body{
        .toggleSearch,
        .toggleTranslate{
               display: block;
+       }
+}
+
+/* mobile-menu-container */
+.mobile-menu-container{
+       height: 500px;
+       background-color: var(--bs-neoWhite);
+       display: none;
+       position: relative;
+       z-index: 100;
+       color: red;
+
+
+}
+.mobile-menu-container ul{
+       display: flex;
+       flex-direction: column;
+       height: 100%;
+       padding: 0;
+       justify-content: center;
+       align-items: center;
+       padding-bottom: 30px;
+
+}
+.mobile-menu-container ul a{
+       padding-bottom: 25px;
+}
+.menu-btn-mobile_menu{
+       color: var(--bs-black);
+       text-decoration: none;
+       font-size: 25px;
+       font-weight: 300;
+}
+.mobile-menu-close-btn{
+       display: flex;
+       justify-content: flex-end;
+       padding: 10px;
+}
+.mobile-menu-close-btn button{
+       font-size: 20px;
+       border: none;
+       background-color: transparent;
+       cursor: pointer;
+}
+@media all and (min-width:850px) {
+       .mobile-menu-container{
+              display: none;
        }
 }
