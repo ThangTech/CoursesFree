@@ -1,98 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>My's Course</title>
-       <link rel="stylesheet" href="./public/CSS/style.css">
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-       <link rel="shortcut icon" href="./public/Storage/Images/icons8-books-emoji-48.png" type="image/x-icon">
-       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-</head>
-<body>
-       <header>
-              <div class="header-left">
-                     <a href="#">
-                     <div class="logo">
-                            <img src="./public/Storage/Images/logostudy2.jpg" alt="">
-                     </div>
-              </a>
-              <a href="#Tutorial" class="menu-btn" id="tutorial-btn">
-                            Hướng dẫn
-                     <i class="fa-solid fa-caret-down"></i>
-              </a>
-              <a href="#References" class="menu-btn" id="refernces-btn">
-                            Tài liệu
-                     <i class="fa-solid fa-caret-down"></i>
-              </a>
-              <a href="#Exercises" class="menu-btn" id="excercises-btn">
-                            Luyện tập
-                     <i class="fa-solid fa-caret-down" class="menu-btn"></i>
-              </a>
-              <a href="#video" class="menu-btn" id="video-btn"> 
-                     Video
-              </a>
-              <!-- mobile-view -->
-              <div class="menu-btn" id="menu-btn-Mobile">
-                     Danh mục
-                     <i class="fa-solid fa-caret-down" class="menu-btn"></i>
-              </div>
-              </div>
-              <div class="header-right">
-                     <div class="toggleLightDark btn">
-                            <i class="fa-solid fa-circle-half-stroke"></i>
-                     </div>
-                     <div class="toggleTranslate">
-                            <i class="fa-solid fa-earth-africa"></i>
-                     </div>
-                     <div class="toggleSearch">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                     </div>
-                     <a href="#For Teacher" class="btn btn-link bg-black" id="forteacher-btn">
-                            Giảng dạy
-                     </a>
-                     <a href="#Certificate" class="btn btn-link bg-pink" id="cectificate-btn">
-                            Chứng chỉ
-                     </a>
-                     <a href="#Free Website" class="btn btn-link bg-yellow" id="free-btn">
-                            Free Website
-                     </a>
-                     <a href="#Login" class="btn btn-link bg-green" id="login-btn"> 
-                            Đăng nhập
-                     </a>
-              </div>
-       </header>
-       <div class="mobile-menu-container" id="mobile-menu-nav">
-              <div class="mobile-menu-close-btn">
-                     <button id="mobile-nav-close"><i class="fa-solid fa-xmark"></i></button>
-              </div>
-              <ul>
-                     <a href="#Tutorial" class="menu-btn-mobile_menu">
-                            Hướng dẫn
-                            <i class="fa-solid fa-caret-down"></i>
-                     </a>
-                     <a href="#References" class="menu-btn-mobile_menu">
-                            Tài liệu
-                            <i class="fa-solid fa-caret-down"></i>
-                     </a>
-                     <a href="#Exercises" class="menu-btn-mobile_menu">
-                            Luyện tập
-                            <i class="fa-solid fa-caret-down"></i>
-                     </a>
-                     <a href="#video" class="menu-btn-mobile_menu"> 
-                            Video
-                     </a>
-                     <a href="#For Teacher" class="menu-btn-mobile_menu">
-                            Giảng dạy
-                     </a>
-                     <a href="#Certificate" class="menu-btn-mobile_menu">
-                            Chứng chỉ
-                     </a>
-                     <a href="#Free Website"class="menu-btn-mobile_menu">
-                            Free Website
-                     </a>
-              </ul>
-       </div>
-       <script src="./public/JS/script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My's Course</title>
+    <link rel="stylesheet" href="./public/CSS/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="./public/Storage/Images/icons8-books-emoji-48.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-left">
+        <a href="#">
+          <div class="logo">
+            <img src="./public/Storage/Images/logostudy2.jpg" alt="" />
+          </div>
+        </a>
+        <a href="#Tutorial" class="menu-btn" id="tutorial-btn">
+          Hướng dẫn
+          <i class="fa-solid fa-caret-down"></i>
+        </a>
+        <a href="#References" class="menu-btn" id="refernces-btn">
+          Tài liệu
+          <i class="fa-solid fa-caret-down"></i>
+        </a>
+        <a href="#Exercises" class="menu-btn" id="excercises-btn">
+          Luyện tập
+          <i class="fa-solid fa-caret-down" class="menu-btn"></i>
+        </a>
+        <a href="#video" class="menu-btn" id="video-btn"> Video </a>
+        <!-- mobile-view -->
+        <div class="menu-btn" id="menu-btn-Mobile">
+          Danh mục
+          <i class="fa-solid fa-caret-down" class="menu-btn"></i>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="toggleLightDark btn">
+          <i class="fa-solid fa-circle-half-stroke"></i>
+        </div>
+        <div class="toggleTranslate">
+          <i class="fa-solid fa-earth-africa"></i>
+        </div>
+        <div class="toggleSearch">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <a
+          href="#For Teacher"
+          class="btn btn-link bg-black"
+          id="forteacher-btn"
+        >
+          Giảng dạy
+        </a>
+        <a
+          href="#Certificate"
+          class="btn btn-link bg-pink"
+          id="cectificate-btn"
+        >
+          Chứng chỉ
+        </a>
+        <a href="#Free Website" class="btn btn-link bg-yellow" id="free-btn">
+          Free Website
+        </a>
+        <a href="#Login" class="btn btn-link bg-green" id="login-btn">
+          Đăng nhập
+        </a>
+      </div>
+    </header>
+    <div class="mobile-menu-container" id="mobile-menu-nav">
+      <div class="mobile-menu-close-btn">
+        <button id="mobile-nav-close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <ul>
+        <a href="#Tutorial" class="menu-btn-mobile_menu">
+          Hướng dẫn
+          <i class="fa-solid fa-caret-down"></i>
+        </a>
+        <a href="#References" class="menu-btn-mobile_menu">
+          Tài liệu
+          <i class="fa-solid fa-caret-down"></i>
+        </a>
+        <a href="#Exercises" class="menu-btn-mobile_menu">
+          Luyện tập
+          <i class="fa-solid fa-caret-down"></i>
+        </a>
+        <a href="#video" class="menu-btn-mobile_menu"> Video </a>
+        <a href="#For Teacher" class="menu-btn-mobile_menu"> Giảng dạy </a>
+        <a href="#Certificate" class="menu-btn-mobile_menu"> Chứng chỉ </a>
+        <a href="#Free Website" class="menu-btn-mobile_menu"> Free Website </a>
+      </ul>
+    </div>
+    <!-- nested navigation -->
+    <div class="nested-navigation-container nested-navigation-hidden" id="nested-navigation-container-id">
+      <div class="nested-navigation-container-close">
+        <button><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="nested-navigation-container-content">
+        <h1>Hướng dẫn</h1>
+        <div class="nested-navigation-container-data">
+          <div class="nested-navigation-item">
+            <h2>HTML và CSS</h2>
+            <a href="#">HTML cơ bản</a>
+            <a href="#">CSS cơ bản</a>
+            <a href="#">Flexbox & Grid</a>
+            <a href="#">Responsive Design</a>
+          </div>
+          <div class="nested-navigation-item"> 
+            <h2>JavaScript</h2>
+            <a href="#">JavaScript cơ bản</a>
+            <a href="#">DOM Manipulation</a>
+            <a href="#">ES6+</a>
+            <a href="#">Async & Fetch API</a>
+          </div>
+          <div class="nested-navigation-item">
+            <h2>Front-end Frameworks</h2>
+            <a href="#">ReactJS</a>
+            <a href="#">Angular</a>
+            <a href="#">VueJS</a>
+            <a href="#">TailwindCSS</a>
+          </div>
+          <div class="nested-navigation-item">
+            <h2>Web API với C#</h2>
+            <a href="#">ASP.NET Core cơ bản</a>
+            <a href="#">Entity Framework Core</a>
+            <a href="#">Authentication & JWT</a>
+            <a href="#">RESTful API thực tế</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./public/JS/script.js"></script>
+  </body>
 </html>
