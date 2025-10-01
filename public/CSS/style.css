@@ -11,6 +11,7 @@
         --bs-yellow: #FFF4A3;
         --bs-white: #fff;
         --bs-neoWhite: #E7E9EB;
+        --bs-greenLight: #D9EEE1;
 }
 header{
        height: 70px;
@@ -189,7 +190,8 @@ body{
        height: 500px;
        background-color: var(--bs-neoWhite);
        display: none;
-       position: relative;
+       position: absolute;
+       width: 100%;
        z-index: 100;
        color: red;
 
@@ -242,7 +244,8 @@ body{
        background-color: var(--bs-black);
        padding: 10px;
        color: white;
-       position: relative;
+       position: absolute;
+       width: 100%;
        padding-bottom: 50px;
 }
 .nested-navigation-container-close{
@@ -300,4 +303,165 @@ body{
 /* utility-class */
 .text-white{
        color: var(--bs-white);
+}
+
+/* section */
+section{
+       padding: 0px;
+       margin: 0px;
+}
+.section-container{
+       width: 85%;
+       margin: auto;
+       max-width: 500px;
+}
+.section-heading{
+       background-color: var(--bs-black);
+}
+.section-heading .section-container{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       height: 480px;
+}
+.section-heading h1{
+       font-size: 50px;
+       color: var(--bs-white);
+       margin-bottom: 20px;
+}
+.section-heading p{
+       color: var(--bs-pink);
+       font-size: 21px;
+       font-weight: 550;
+       text-align: center;
+}
+.section-heading-search{
+       width: 100%;
+       height: 50px;
+       border-radius: 50px;
+       display: flex;
+       justify-content: space-between;
+       align-items: center; 
+       margin-top: 20px;
+}
+.section-heading-search i{
+       background-color: var(--bs-green);
+       height: 50px;
+       width: 75px;
+       font-size: 25px;
+       border-radius: 0 50px 50px 0;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       color: var(--bs-white);
+}
+.section-heading-search input{
+       height: 100%;
+       width: 100%;
+       border-radius: 50px 0px 0px 50px;
+       border: none;
+       outline: none;
+       padding: 0px 20px;
+       font-size: 16px;
+}
+.section-heading a{
+       display: block;
+       color: var(--bs-white);
+       font-size: 20px;
+       margin: 30px 0;
+       font-weight: 550;
+}
+.section-heading a:hover{
+      color: var(--bs-green) 
+}
+@media all and (min-width:500px){
+       .section-heading h1{
+              font-size: 70px;
+       }
+       .section-heading p{
+              font-size: 25px;
+       }
+}
+/* section-html */
+.section-html{
+       background-color: var(--bs-greenLight);
+       padding: 1px;
+       height: 480px;
+}
+.section-left{
+       padding: 1px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+}
+.section-left h1{
+       font-size: 60px;
+       margin: 0;
+}
+.section-left p{
+       font-size: 22px;
+       font-weight: 550;
+}
+.section-left a{
+       width: 200px;
+       padding: 10px 20px;
+       font-size: 21px;
+       font-weight: 550;
+       /* color: var(--bs-black); */
+       text-decoration: none;
+       text-align: center;
+       border-radius: 50px;
+       margin-bottom: 10px;
+       margin-top: 20px;
+}
+.section-right{
+       display: none;
+}
+@media all and (min-width:1000px){
+       .section-html{
+              display: flex;
+              justify-content: space-around;
+              padding: 30px 0px;
+              height: 500px;
+       }
+       .section-left{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 50%;
+       }
+       .section-right{
+              display: block;
+              background-color: var(--bs-neoWhite);
+              width: 40%;
+              margin-right: 100px;
+              margin-top: 10px;
+              box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.1),
+              5px 5px 10px rgba(0, 0, 0, 0.1);
+              border-radius: 5px;
+              padding: 5px 20px;
+       }
+       .editor{
+              background-color: white;
+              height: 330px;
+              border-left: 5px solid var(--bs-green);
+              max-height: 100%;
+              min-height: 100%;
+              padding: 10px;
+
+       }
+       .editor-btn{
+              background-color: var(--bs-green);
+              color: var(--bs-white);
+              border: none;
+              font-size: 18px;
+              font-weight: 550;
+              padding: 10px 40px;
+              margin-top: 10px;
+              border-radius: 50px;
+              text-decoration: none;
+              display: inline-block;
+       }
 }

@@ -3,6 +3,7 @@ const menuBtnMobile = document.getElementById("menu-btn-Mobile");
 let isOpen = false;
 const mobileMenuNav = document.getElementById("mobile-menu-nav");
 const mobileNavClose = document.getElementById("mobile-nav-close");
+const nestedCloseBtn = document.getElementById("nested-nav-close-btn");
 menuBtnMobile.addEventListener("click", () => {
   if (isOpen) {
 //     mobileMenuNav.style.display = "none";
@@ -23,8 +24,28 @@ mobileNavClose.addEventListener("click", () => {
 const nestedNavId = document.getElementById("nested-navigation-container-id");
 const tuTorialBtn = document.getElementById("tutorial-btn");
 
-tuTorialBtn.addEventListener("click",() =>{
+const toggleTutorial = () =>{
        tuTorialBtn.classList.toggle("bg-black");
        tuTorialBtn.classList.toggle("text-white");
        nestedNavId.classList.toggle("nested-navigation-hidden");
-})
+};
+tuTorialBtn.addEventListener("click",toggleTutorial);
+nestedCloseBtn.addEventListener("click", toggleTutorial);
+// code-editor
+const htmlCode = `
+       <!DOCTYPE html>
+
+       <html>
+
+       <title>Hướng dẫn HTML</title>
+
+       <body>
+              <h1>Đây là thẻ H1</h1> 
+
+              <p>Đây là là thẻ trang</p>
+                    
+       </body>
+
+       </html>
+`;
+const htmlEditor = document.getElementById("html-code").innerText = htmlCode;

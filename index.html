@@ -102,8 +102,11 @@
       </ul>
     </div>
     <!-- nested navigation -->
-    <div class="nested-navigation-container nested-navigation-hidden" id="nested-navigation-container-id">
-      <div class="nested-navigation-container-close">
+    <div
+      class="nested-navigation-container nested-navigation-hidden"
+      id="nested-navigation-container-id"
+    >
+      <div class="nested-navigation-container-close" id="nested-nav-close-btn">
         <button><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="nested-navigation-container-content">
@@ -116,7 +119,7 @@
             <a href="#">Flexbox & Grid</a>
             <a href="#">Responsive Design</a>
           </div>
-          <div class="nested-navigation-item"> 
+          <div class="nested-navigation-item">
             <h2>JavaScript</h2>
             <a href="#">JavaScript cơ bản</a>
             <a href="#">DOM Manipulation</a>
@@ -140,6 +143,51 @@
         </div>
       </div>
     </div>
+
+    <section class="section section-heading">
+      <div class="section-container">
+        <h1>Bắt đầu học</h1>
+        <p>Từng bước xây dựng kỹ năng lập trình web</p>
+        <div class="section-heading-search">
+          <input
+            type="text"
+            placeholder="Tìm kiếm hướng dẫn về HTML, CSS,..."
+          />
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <a href="">Không biết bắt đầu từ đâu?</a>
+      </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 120"
+        preserveAspectRatio="none"
+        style="display: block; width: 100%; height: 70px"
+      >
+        <path
+          fill="#f3f4f6"
+          d="M0,80C180,120 360,40 540,80C720,120 900,40 1080,80C1260,120 1440,40 1440,40L1440,120L0,120Z"
+        ></path>
+      </svg>
+    </section>
+    <section class="section-html">
+      <div class="section-left">
+        <h1>HTML</h1>
+        <p>Ngôn ngữ để xây dựng trang web</p>
+        <a href="" class="bg-green">Học HTML</a>
+        <a href="" class="bg-yellow">Video hướng dẫn</a>
+        <a href="" class="bg-black">Tài liệu HTML</a>
+        <a href="" class="bg-pink">Chứng chỉ</a>
+      </div>
+      <div class="section-right">
+              <div class="editor-container">
+                   <h1>Cấu trúc HTML </h1>  
+                   <div class="editor" id="html-code">
+              
+                   </div>
+                   <a href="" class="editor-btn">Thử ngay</a>
+              </div>
+      </div>
+    </section>
     <script src="./public/JS/script.js"></script>
   </body>
 </html>
