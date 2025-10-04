@@ -46,8 +46,15 @@ body{
        background-color: var(--bs-green);
        color: var(--bs-white);
 }
+.bg-teal{
+       background-color: var(--bs-teal);
+       color: var(--bs-white);
+}
 .text-white{
        color: var(--bs-white);
+}
+.text-black{
+       color: var(--bs-black);
 }
 /* logo */
 .logo{
@@ -431,6 +438,7 @@ section{
               justify-content: center;
               align-items: center;
               width: 50%;
+              white-space: nowrap;
        }
        .section-right{
               display: block;
@@ -464,4 +472,36 @@ section{
               text-decoration: none;
               display: inline-block;
        }
+}
+/* section css */
+.section-css,
+.section-javascript,
+.section-python,
+.section-sql{
+       position: relative;
+       display: flex;
+       justify-content: space-around;
+       align-items: center;
+       height: 600px;
+       padding: 100px 0px;
+}
+.section-css{
+       background-color: var(--bs-yellow);
+}
+.section-javascript{
+       background-color: var(--bs-black);
+}
+.section-javascript{
+       color: var(--bs-white);
+       white-space: nowrap;
+}
+.section-python{
+       background-color: var(--bs-teal);
+}
+.section-sql{
+        background-color: var(--bs-yellow);
+        height: 400px;
+}
+.section-sql .editor{
+       height: 200px;
 }

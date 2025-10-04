@@ -49,3 +49,70 @@ const htmlCode = `
        </html>
 `;
 const htmlEditor = document.getElementById("html-code").innerText = htmlCode;
+
+const cssCode = `
+       body {
+       
+         width: 100%;
+         font-family: 'Roboto',sans-serif;
+       }
+
+       h1 {
+
+       padding: 10px;
+       }
+
+       p {
+       background-color: red;
+       color: white;
+       } 
+`
+const cssEditor = document.getElementById("css-code").innerText = cssCode;
+
+const javaCode = `
+       <button onclick="changeText()">Bấm vào tôi</button>
+
+       <script>
+
+              function changeText() {
+
+              let textElement = document.getElementById("text");
+
+              textElement.innerHTML = "Nội dung đã thay đổi nhờ JavaScript!";
+
+              textElement.style.color = "blue";
+
+       }
+
+       </script>
+`
+const javaEditor = document.getElementById("java-code").innerText = javaCode;
+
+const pythonCode =`
+       ten = input("Nhập tên của bạn: ")
+       tuoi = input("Nhập tuổi của bạn: ")
+       print("\n--- Kết quả ---")
+       print(f"Xin chào {ten}")
+       print(f"Bạn {tuoi} tuổi rồi nhỉ!")
+
+       tuoi = int(tuoi)
+       if tuoi < 18:
+       print("Bạn vẫn còn trẻ, hãy chăm học nhé!")
+       elif tuoi < 40:
+              print("Bạn đang ở độ tuổi sung sức nhất!")
+       else:
+              print("Chúc bạn luôn mạnh khỏe và hạnh phúc!")
+`
+const pythonEditor = document.getElementById("python-code").innerText = pythonCode;
+
+const sqlCode = `
+       CREATE TABLE SinhVien (
+              ID INT PRIMARY KEY,
+              Ten NVARCHAR(100),
+              Tuoi INT,
+              Lop NVARCHAR(50)
+       );
+
+       SELECT * FROM SinhVien;
+`
+const sqlEditor = document.getElementById("sql-code").innerText = sqlCode;
