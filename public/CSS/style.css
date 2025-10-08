@@ -597,7 +597,7 @@ section {
 /* webTemplate */
 .template-web {
   background-color: var(--bs-neoWhite);
-  padding: 50px 0px;
+  padding: 50px 20px;
 }
 .template-web-container {
   width: 100%;
@@ -626,6 +626,11 @@ section {
   margin-top: 20px;
   border-radius: 30px;
   text-decoration: none;
+}
+@media all and (min-width:1000px) {
+       .template-web-container{
+          padding: 50px 0px;
+       }
 }
 /* howtosection */
 .howtosection {
@@ -710,4 +715,28 @@ section {
 }
 .howtosection-btn button:hover {
   background: rgba(255, 255, 255, 0.9);
+}
+.howtosection-bottom{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+}
+.verticalBox{
+       width: 400px;
+       height: 35px;
+}
+.verticalBox a{
+       text-decoration: none;
+}
+.verticalBox button{
+       display: flex;
+       width: 100%;
+       height: 35px;
+       border: none;
+       border-radius: 20px;
+       font-size: 21px;
+       justify-content: center;
+       align-items: center;
+       padding: 20px;
 }
