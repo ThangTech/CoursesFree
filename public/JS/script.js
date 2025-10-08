@@ -6,30 +6,30 @@ const mobileNavClose = document.getElementById("mobile-nav-close");
 const nestedCloseBtn = document.getElementById("nested-nav-close-btn");
 menuBtnMobile.addEventListener("click", () => {
   if (isOpen) {
-//     mobileMenuNav.style.display = "none";
+    //     mobileMenuNav.style.display = "none";
     mobileMenuNav.classList.remove("mobile-menu-nav-hidden");
     isOpen = false;
   } else {
-//     mobileMenuNav.style.display = "block";
+    //     mobileMenuNav.style.display = "block";
     mobileMenuNav.classList.add("mobile-menu-nav-hidden");
     isOpen = true;
   }
 });
 mobileNavClose.addEventListener("click", () => {
-       // mobileMenuNav.style.display = "none";
-       mobileMenuNav.classList.remove("mobile-menu-nav-hidden");
-       isOpen = false;
+  // mobileMenuNav.style.display = "none";
+  mobileMenuNav.classList.remove("mobile-menu-nav-hidden");
+  isOpen = false;
 });
 // Tutorial-btn
 const nestedNavId = document.getElementById("nested-navigation-container-id");
 const tuTorialBtn = document.getElementById("tutorial-btn");
 
-const toggleTutorial = () =>{
-       tuTorialBtn.classList.toggle("bg-black");
-       tuTorialBtn.classList.toggle("text-white");
-       nestedNavId.classList.toggle("nested-navigation-hidden");
+const toggleTutorial = () => {
+  tuTorialBtn.classList.toggle("bg-black");
+  tuTorialBtn.classList.toggle("text-white");
+  nestedNavId.classList.toggle("nested-navigation-hidden");
 };
-tuTorialBtn.addEventListener("click",toggleTutorial);
+tuTorialBtn.addEventListener("click", toggleTutorial);
 nestedCloseBtn.addEventListener("click", toggleTutorial);
 // code-editor
 const htmlCode = `
@@ -48,7 +48,7 @@ const htmlCode = `
 
        </html>
 `;
-const htmlEditor = document.getElementById("html-code").innerText = htmlCode;
+const htmlEditor = (document.getElementById("html-code").innerText = htmlCode);
 
 const cssCode = `
        body {
@@ -66,8 +66,8 @@ const cssCode = `
        background-color: red;
        color: white;
        } 
-`
-const cssEditor = document.getElementById("css-code").innerText = cssCode;
+`;
+const cssEditor = (document.getElementById("css-code").innerText = cssCode);
 
 const javaCode = `
        <button onclick="changeText()">Bấm vào tôi</button>
@@ -85,10 +85,10 @@ const javaCode = `
        }
 
        </script>
-`
-const javaEditor = document.getElementById("java-code").innerText = javaCode;
+`;
+const javaEditor = (document.getElementById("java-code").innerText = javaCode);
 
-const pythonCode =`
+const pythonCode = `
        ten = input("Nhập tên của bạn: ")
        tuoi = input("Nhập tuổi của bạn: ")
        print("\n--- Kết quả ---")
@@ -102,8 +102,9 @@ const pythonCode =`
               print("Bạn đang ở độ tuổi sung sức nhất!")
        else:
               print("Chúc bạn luôn mạnh khỏe và hạnh phúc!")
-`
-const pythonEditor = document.getElementById("python-code").innerText = pythonCode;
+`;
+const pythonEditor = (document.getElementById("python-code").innerText =
+  pythonCode);
 
 const sqlCode = `
        CREATE TABLE SinhVien (
@@ -114,5 +115,39 @@ const sqlCode = `
        );
 
        SELECT * FROM SinhVien;
-`
-const sqlEditor = document.getElementById("sql-code").innerText = sqlCode;
+`;
+const sqlEditor = (document.getElementById("sql-code").innerText = sqlCode);
+
+// howtosection slide
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(
+    ".howtosection-item:not(.background)"
+  );
+  const prevBtn = document.getElementById("prev-btn");
+  const nextBtn = document.getElementById("next-btn");
+  let currentSlide = 0;
+
+  const showSlide = (index) => {
+    slides.forEach((slide) => slide.classList.remove("active"));
+    if (index >= slides.length) currentSlide = 0;
+    if (index < 0) currentSlide = slides.length - 1;
+    slides[currentSlide].classList.add("active");
+  };
+
+  nextBtn.addEventListener("click", () => {
+    currentSlide++;
+    showSlide(currentSlide);
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentSlide--;
+    showSlide(currentSlide);
+  });
+
+  setInterval(() => {
+    currentSlide++;
+    showSlide(currentSlide);
+  }, 5000);
+
+  showSlide(0);
+});
