@@ -151,3 +151,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showSlide(0);
 });
+//popup
+  const likeBtn = document.getElementById("likeBtn");
+  const likePopup = document.getElementById("likePopup");
+  const closePopup = document.getElementById("closePopup");
+
+  likeBtn.addEventListener("click", () => {
+    likePopup.style.display = "flex";
+  });
+
+  closePopup.addEventListener("click", () => {
+    likePopup.style.display = "none";
+  });
+
+  // Đóng popup khi click ra ngoài
+  window.addEventListener("click", (e) => {
+    if (e.target === likePopup) {
+      likePopup.style.display = "none";
+    }
+  });
