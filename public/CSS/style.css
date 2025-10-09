@@ -26,6 +26,9 @@ body {
   width: 100%;
   font-family: "Roboto", sans-serif;
 }
+i{
+       cursor: pointer;
+}
 /* utility class */
 .btn {
   padding: 10px;
