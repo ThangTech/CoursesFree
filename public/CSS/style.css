@@ -21,13 +21,16 @@ header {
   padding: 0px 20px;
   display: flex;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 body {
   width: 100%;
   font-family: "Roboto", sans-serif;
 }
-i{
-       cursor: pointer;
+i {
+  cursor: pointer;
 }
 /* utility class */
 .btn {
@@ -159,7 +162,12 @@ i{
 .toggleTranslate {
   display: none;
 }
-
+.toggleTranslate:hover {
+  color: var(--bs-teal);
+}
+.toggleSearch:hover {
+  color: var(--bs-teal);
+}
 /* responsive */
 @media all and (min-width: 1305px) {
   #forteacher-btn {
@@ -208,13 +216,17 @@ i{
 
 /* mobile-menu-container */
 .mobile-menu-container {
-  height: 500px;
-  background-color: var(--bs-neoWhite);
-  display: none;
-  position: absolute;
+  position: fixed;
+  top: 70px;
+  left: 0;
   width: 100%;
-  z-index: 100;
-  color: red;
+  max-height: 60vh;
+  background-color: var(--bs-neoWhite);
+  overflow-y: auto;
+  display: none;
+  z-index: 1500;
+  color: var(--bs-black);
+  transition: transform 0.3s ease;
 }
 .mobile-menu-container ul {
   display: flex;
@@ -260,11 +272,15 @@ i{
 /* nested-navigation-container */
 .nested-navigation-container {
   background-color: var(--bs-black);
-  padding: 10px;
   color: white;
-  position: absolute;
+  position: fixed;
+  top: 70px;
+  left: 0;
   width: 100%;
-  padding-bottom: 50px;
+  max-height: 500px;
+  overflow-y: auto;
+  z-index: 1500;
+  padding: 20px;
 }
 .nested-navigation-container-close {
   position: absolute;
@@ -631,10 +647,10 @@ section {
   border-radius: 30px;
   text-decoration: none;
 }
-@media all and (min-width:1000px) {
-       .template-web-container{
-          padding: 50px 0px;
-       }
+@media all and (min-width: 1000px) {
+  .template-web-container {
+    padding: 50px 0px;
+  }
 }
 /* howtosection */
 .howtosection {
@@ -720,29 +736,29 @@ section {
 .howtosection-btn button:hover {
   background: rgba(255, 255, 255, 0.9);
 }
-.howtosection-bottom{
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       flex-direction: column;
+.howtosection-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.verticalBox{
-       width: 350px;
-       height: 35px;
+.verticalBox {
+  width: 350px;
+  height: 35px;
 }
-.verticalBox a{
-       text-decoration: none;
+.verticalBox a {
+  text-decoration: none;
 }
-.verticalBox button{
-       display: flex;
-       width: 100%;
-       height: 35px;
-       border: none;
-       border-radius: 20px;
-       font-size: 21px;
-       justify-content: center;
-       align-items: center;
-       padding: 20px;
+.verticalBox button {
+  display: flex;
+  width: 100%;
+  height: 35px;
+  border: none;
+  border-radius: 20px;
+  font-size: 21px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 /* footer */
 .footer {
@@ -835,13 +851,19 @@ section {
   font-size: 30px;
   margin-top: 20px;
 }
-.footer-like i:hover{
+.footer-like i:hover {
   animation: pop 0.3s ease;
 }
 @keyframes pop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.5); }
-  100% { transform: scale(1.2); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1.2);
+  }
 }
 
 @media (max-width: 768px) {
@@ -953,6 +975,12 @@ section {
   cursor: pointer;
 }
 @keyframes popupFade {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

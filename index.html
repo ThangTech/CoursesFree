@@ -57,13 +57,6 @@
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
         <a
-          href="#For Teacher"
-          class="btn btn-link bg-black"
-          id="forteacher-btn"
-        >
-          Giảng dạy
-        </a>
-        <a
           href="#Certificate"
           class="btn btn-link bg-pink"
           id="cectificate-btn"
@@ -96,7 +89,6 @@
           <i class="fa-solid fa-caret-down"></i>
         </a>
         <a href="#video" class="menu-btn-mobile_menu"> Video </a>
-        <a href="#For Teacher" class="menu-btn-mobile_menu"> Giảng dạy </a>
         <a href="#Certificate" class="menu-btn-mobile_menu"> Hồ sơ học tập </a>
         <a href="#Project" class="menu-btn-mobile_menu"> Dự án của tôi </a>
       </ul>
@@ -110,45 +102,7 @@
         <button><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="nested-navigation-container-content">
-        <h1>Hướng dẫn</h1>
-        <div class="nested-navigation-container-data">
-          <div class="nested-navigation-item">
-            <h2>HTML và CSS</h2>
-            <a href="#">HTML cơ bản</a>
-            <a href="#">CSS cơ bản</a>
-            <a href="#">Flexbox & Grid</a>
-            <a href="#">Responsive Design</a>
-          </div>
-          <div class="nested-navigation-item">
-            <h2>JavaScript</h2>
-            <a href="#">JavaScript cơ bản</a>
-            <a href="#">DOM Manipulation</a>
-            <a href="#">ES6+</a>
-            <a href="#">Async & Fetch API</a>
-          </div>
-          <div class="nested-navigation-item">
-            <h2>Front-end Frameworks</h2>
-            <a href="#">ReactJS</a>
-            <a href="#">Angular</a>
-            <a href="#">VueJS</a>
-            <a href="#">TailwindCSS</a>
-          </div>
-          <div class="nested-navigation-item">
-            <h2>Web API với C#</h2>
-            <a href="#">ASP.NET Core cơ bản</a>
-            <a href="#">Entity Framework Core</a>
-            <a href="#">Authentication & JWT</a>
-            <a href="#">RESTful API thực tế</a>
-          </div>
-          <div class="nested-navigation-item">
-            <h2>Làm chủ AI</h2>
-            <a href="#">Python</a>
-          </div>
-          <div class="nested-navigation-item">
-            <h2>Cơ sở dữ liệu</h2>
-            <a href="#">SQL</a>
-          </div>
-        </div>
+        <!-- JS sẽ render dữ liệu tutorials vào đây -->
       </div>
     </div>
 
@@ -260,36 +214,7 @@
     </section>
     <section class="courses-card-container">
       <div class="course-card">
-        <div class="bg-pink">
-          <h2>PHP</h2>
-          <p>Ngôn ngữ lập trình phía máy chủ mạnh mẽ</p>
-          <a href=""><button class="bg-black btn">Học PHP</button></a>
-        </div>
-        <div class="bg-yellow">
-          <h2>JQuery</h2>
-          <p>Thư viện JS phát triển trang web</p>
-          <a href=""><button class="bg-black btn">Học JQuery</button></a>
-        </div>
-        <div class="bg-white">
-          <h2>Java</h2>
-          <p>Ngôn ngữ lập trình mạnh mẽ</p>
-          <a href=""><button class="bg-black btn">Học Java</button></a>
-        </div>
-        <div class="bg-teal">
-          <h2>C++</h2>
-          <p>Ngôn ngữ lập trình</p>
-          <a href=""><button class="bg-black btn">Học C#</button></a>
-        </div>
-        <div class="bg-green">
-          <h2>C#</h2>
-          <p>Ngôn ngữ lập trình</p>
-          <a href=""><button class="bg-black btn">Học C++</button></a>
-        </div>
-        <div class="bg-greenLight">
-          <h2>Bootstrap</h2>
-          <p>Là một framework của CSS</p>
-          <a href=""><button class="bg-black btn">Học Bootstrap</button></a>
-        </div>
+        <!-- JS sẽ render các khóa học vào đây -->
       </div>
     </section>
     <div class="section-exercise">
@@ -402,6 +327,7 @@
         </div>
       </div>
     </footer>
+    <script src="./public/JS/render-data.js"></script>
     <script src="./public/JS/script.js"></script>
   </body>
 </html>

@@ -1,0 +1,378 @@
+{
+  "tutorials": [
+    {
+      "id": "html-css",
+      "category": "HTML và CSS",
+      "lessons": [
+        {
+          "id": "html-basic",
+          "title": "HTML cơ bản",
+          "description": "Học cú pháp HTML và các thẻ cơ bản",
+          "level": "beginner",
+          "duration": "2 giờ",
+          "links": {
+            "tutorial": "https://www.w3schools.com/html/",
+            "documentation": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+            "examples": "https://www.w3schools.com/html/html_examples.asp"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=html+basics"
+        },
+        {
+          "id": "css-basic",
+          "title": "CSS cơ bản",
+          "description": "Định dạng và styling trang web",
+          "level": "beginner",
+          "duration": "2.5 giờ",
+          "links": {
+            "tutorial": "https://www.w3schools.com/css/",
+            "documentation": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+            "examples": "https://www.w3schools.com/css/css_examples.asp"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=css+basics"
+        },
+        {
+          "id": "flexbox-grid",
+          "title": "Flexbox & Grid",
+          "description": "Bố cục hiện đại với Flexbox và CSS Grid",
+          "level": "intermediate",
+          "duration": "3 giờ",
+          "links": {
+            "tutorial": "https://www.w3schools.com/css/css3_flexbox.asp",
+            "documentation": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout",
+            "interactive": "https://flexboxfroggy.com/"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=flexbox+grid+css"
+        },
+        {
+          "id": "responsive-design",
+          "title": "Responsive Design",
+          "description": "Thiết kế web thích ứng trên mọi thiết bị",
+          "level": "intermediate",
+          "duration": "2.5 giờ",
+          "links": {
+            "tutorial": "https://www.w3schools.com/css/css_rwd_intro.asp",
+            "documentation": "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design",
+            "tools": "https://responsively.app/"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=responsive+design"
+        }
+      ]
+    },
+    {
+      "id": "javascript",
+      "category": "JavaScript",
+      "lessons": [
+        {
+          "id": "js-basic",
+          "title": "JavaScript cơ bản",
+          "description": "Biến, kiểu dữ liệu, toán tử và điều khiển luồng",
+          "level": "beginner",
+          "duration": "3 giờ",
+          "links": {
+            "tutorial": "https://www.w3schools.com/js/",
+            "documentation": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+            "examples": "https://www.w3schools.com/js/js_examples.asp"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=javascript+basics"
+        },
+        {
+          "id": "dom-manipulation",
+          "title": "DOM Manipulation",
+          "description": "Tương tác với các phần tử HTML từ JavaScript",
+          "level": "intermediate",
+          "duration": "2.5 giờ",
+          "links": {
+            "tutorial": "https://www.w3schools.com/js/js_dom.asp",
+            "documentation": "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model",
+            "examples": "https://www.w3schools.com/jsref/dom_obj_document.asp"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=javascript+dom+manipulation"
+        },
+        {
+          "id": "es6-plus",
+          "title": "ES6+",
+          "description": "Tính năng hiện đại của JavaScript (Arrow functions, Classes, Promises)",
+          "level": "intermediate",
+          "duration": "3 giờ",
+          "links": {
+            "tutorial": "https://www.w3schools.com/js/js_es6.asp",
+            "documentation": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference",
+            "cheatsheet": "https://devhints.io/es6"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=javascript+es6+features"
+        },
+        {
+          "id": "async-fetch",
+          "title": "Async & Fetch API",
+          "description": "Xử lý bất đồng bộ và gọi API",
+          "level": "advanced",
+          "duration": "2.5 giờ",
+          "links": {
+            "tutorial": "https://www.w3schools.com/js/js_async.asp",
+            "documentation": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
+            "examples": "https://jsonplaceholder.typicode.com/"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=javascript+async+await+fetch"
+        }
+      ]
+    },
+    {
+      "id": "frameworks",
+      "category": "Front-end Frameworks",
+      "lessons": [
+        {
+          "id": "react",
+          "title": "ReactJS",
+          "description": "Thư viện JavaScript để xây dựng giao diện người dùng",
+          "level": "intermediate",
+          "duration": "4 giờ",
+          "links": {
+            "official": "https://react.dev/",
+            "tutorial": "https://www.w3schools.com/whatis/whatis_react.asp",
+            "documentation": "https://react.dev/learn",
+            "playground": "https://codesandbox.io/"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=react+js+tutorial"
+        },
+        {
+          "id": "angular",
+          "title": "Angular",
+          "description": "Framework TypeScript toàn diện từ Google",
+          "level": "advanced",
+          "duration": "5 giờ",
+          "links": {
+            "official": "https://angular.io/",
+            "tutorial": "https://angular.io/guide/setup-local",
+            "documentation": "https://angular.io/docs",
+            "cli": "https://angular.io/cli"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=angular+tutorial"
+        },
+        {
+          "id": "vue",
+          "title": "VueJS",
+          "description": "Framework JavaScript dễ học và linh hoạt",
+          "level": "intermediate",
+          "duration": "3.5 giờ",
+          "links": {
+            "official": "https://vuejs.org/",
+            "tutorial": "https://vuejs.org/guide/introduction.html",
+            "documentation": "https://vuejs.org/guide/",
+            "playground": "https://play.vuejs.org/"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=vue+js+tutorial"
+        },
+        {
+          "id": "tailwind",
+          "title": "TailwindCSS",
+          "description": "Framework CSS utility-first cho styling nhanh chóng",
+          "level": "intermediate",
+          "duration": "2 giờ",
+          "links": {
+            "official": "https://tailwindcss.com/",
+            "documentation": "https://tailwindcss.com/docs",
+            "playground": "https://play.tailwindcss.com/",
+            "ui-components": "https://tailwindui.com/"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=tailwind+css+tutorial"
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "category": "Web API với C#",
+      "lessons": [
+        {
+          "id": "aspnet-core",
+          "title": "ASP.NET Core cơ bản",
+          "description": "Khung làm việc backend hiện đại từ Microsoft",
+          "level": "intermediate",
+          "duration": "4 giờ",
+          "links": {
+            "official": "https://learn.microsoft.com/en-us/aspnet/core/",
+            "tutorial": "https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app/start-mvc",
+            "documentation": "https://learn.microsoft.com/en-us/dotnet/"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=aspnet+core+tutorial"
+        },
+        {
+          "id": "entity-framework",
+          "title": "Entity Framework Core",
+          "description": "ORM cho .NET để quản lý dữ liệu",
+          "level": "intermediate",
+          "duration": "3 giờ",
+          "links": {
+            "official": "https://learn.microsoft.com/en-us/ef/core/",
+            "documentation": "https://learn.microsoft.com/en-us/ef/core/get-started/",
+            "tutorial": "https://www.entityframeworktutorial.net/"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=entity+framework+core+tutorial"
+        },
+        {
+          "id": "auth-jwt",
+          "title": "Authentication & JWT",
+          "description": "Xác thực người dùng và bảo mật API",
+          "level": "advanced",
+          "duration": "3 giờ",
+          "links": {
+            "documentation": "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/",
+            "jwt": "https://jwt.io/",
+            "tutorial": "https://www.c-sharpcorner.com/article/jwt-authentication-in-asp-net-core/"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=jwt+authentication+aspnet+core"
+        },
+        {
+          "id": "restful-api",
+          "title": "RESTful API thực tế",
+          "description": "Xây dựng API RESTful chuyên nghiệp",
+          "level": "advanced",
+          "duration": "4 giờ",
+          "links": {
+            "documentation": "https://learn.microsoft.com/en-us/aspnet/core/web-api/",
+            "best-practices": "https://restfulapi.net/",
+            "tutorial": "https://www.c-sharpcorner.com/article/asp-net-core-web-api/"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=restful+api+aspnet+core"
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "category": "Làm chủ AI",
+      "lessons": [
+        {
+          "id": "python",
+          "title": "Python",
+          "description": "Ngôn ngữ lập trình phổ biến cho AI và Data Science",
+          "level": "beginner",
+          "duration": "4 giờ",
+          "links": {
+            "official": "https://www.python.org/",
+            "tutorial": "https://www.w3schools.com/python/",
+            "documentation": "https://docs.python.org/3/",
+            "interactive": "https://www.learnpython.org/"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=python+basics+tutorial"
+        }
+      ]
+    },
+    {
+      "id": "database",
+      "category": "Cơ sở dữ liệu",
+      "lessons": [
+        {
+          "id": "sql",
+          "title": "SQL",
+          "description": "Ngôn ngữ truy vấn cơ sở dữ liệu",
+          "level": "beginner",
+          "duration": "3 giờ",
+          "links": {
+            "tutorial": "https://www.w3schools.com/sql/",
+            "documentation": "https://dev.mysql.com/doc/",
+            "interactive": "https://www.sqlzoo.net/",
+            "practice": "https://sqliteonline.com/"
+          },
+          "videoUrl": "https://www.youtube.com/results?search_query=sql+tutorial"
+        }
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "id": "php",
+      "title": "PHP",
+      "description": "Ngôn ngữ lập trình phía máy chủ mạnh mẽ",
+      "icon": "fa-php",
+      "backgroundColor": "bg-pink",
+      "level": "intermediate",
+      "links": {
+        "official": "https://www.php.net/",
+        "tutorial": "https://www.w3schools.com/php/",
+        "documentation": "https://www.php.net/docs.php"
+      }
+    },
+    {
+      "id": "jquery",
+      "title": "JQuery",
+      "description": "Thư viện JS phát triển trang web",
+      "icon": "fa-jquery",
+      "backgroundColor": "bg-yellow",
+      "level": "intermediate",
+      "links": {
+        "official": "https://jquery.com/",
+        "tutorial": "https://www.w3schools.com/jquery/",
+        "documentation": "https://api.jquery.com/"
+      }
+    },
+    {
+      "id": "java",
+      "title": "Java",
+      "description": "Ngôn ngữ lập trình mạnh mẽ",
+      "icon": "fa-java",
+      "backgroundColor": "bg-white",
+      "level": "intermediate",
+      "links": {
+        "official": "https://www.java.com/",
+        "tutorial": "https://www.w3schools.com/java/",
+        "documentation": "https://docs.oracle.com/en/java/"
+      }
+    },
+    {
+      "id": "cpp",
+      "title": "C++",
+      "description": "Ngôn ngữ lập trình hiệu suất cao",
+      "icon": "fa-cpp",
+      "backgroundColor": "bg-teal",
+      "level": "advanced",
+      "links": {
+        "official": "https://isocpp.org/",
+        "tutorial": "https://www.w3schools.com/cpp/",
+        "documentation": "https://en.cppreference.com/"
+      }
+    },
+    {
+      "id": "csharp",
+      "title": "C#",
+      "description": "Ngôn ngữ lập trình hiện đại từ Microsoft",
+      "icon": "fa-csharp",
+      "backgroundColor": "bg-green",
+      "level": "intermediate",
+      "links": {
+        "official": "https://docs.microsoft.com/en-us/dotnet/csharp/",
+        "tutorial": "https://www.w3schools.com/cs/",
+        "documentation": "https://learn.microsoft.com/en-us/dotnet/csharp/"
+      }
+    },
+    {
+      "id": "bootstrap",
+      "title": "Bootstrap",
+      "description": "Framework CSS phổ biến nhất",
+      "icon": "fa-bootstrap",
+      "backgroundColor": "bg-greenLight",
+      "level": "beginner",
+      "links": {
+        "official": "https://getbootstrap.com/",
+        "documentation": "https://getbootstrap.com/docs/5.3/",
+        "tutorial": "https://www.w3schools.com/bootstrap5/"
+      }
+    }
+  ],
+  "resources": {
+    "exercises": {
+      "url": "https://www.w3schools.com/exercises/",
+      "description": "Thực hành bài tập trực tuyến"
+    },
+    "quizzes": {
+      "url": "https://www.w3schools.com/quiztest/",
+      "description": "Kiểm tra kiến thức với các bài trắc nghiệm"
+    },
+    "templates": {
+      "url": "https://www.w3schools.com/css/css_templates.asp",
+      "description": "Mẫu trang web miễn phí"
+    },
+    "codeEditor": {
+      "url": "https://www.w3schools.com/tryit/",
+      "description": "Trình soạn thảo mã trực tuyến"
+    }
+  }
+}
