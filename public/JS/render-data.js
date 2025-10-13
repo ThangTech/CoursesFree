@@ -21,13 +21,23 @@ async function fetchCourseData() {
 function renderTutorials(data) {
   const tutorialContainer = document.getElementById('nested-navigation-container-id');
   
-  if (!tutorialContainer || !data.tutorials) return;
+  if (!tutorialContainer || !data.tutorials) {
+    console.log('Không tìm thấy container hoặc data');
+    return;
+  }
   
   const contentDiv = tutorialContainer.querySelector('.nested-navigation-container-content');
+  
+  if (!contentDiv) {
+    console.log('Không tìm thấy content div');
+    return;
+  }
   
   contentDiv.innerHTML = '<h1>Hướng dẫn</h1><div class="nested-navigation-container-data"></div>';
   
   const dataContainer = contentDiv.querySelector('.nested-navigation-container-data');
+  
+  console.log('Số lượng tutorials:', data.tutorials.length);
   
   data.tutorials.forEach(tutorial => {
     const categoryDiv = document.createElement('div');
@@ -35,13 +45,15 @@ function renderTutorials(data) {
     
     let lessonHTML = `<h2>${tutorial.category}</h2>`;
     
-    tutorial.lessons.forEach(lesson => {
-      lessonHTML += `<a href="${lesson.links.tutorial || '#'}" target="_blank">${lesson.title}</a>`;
+    tutorial.items.forEach(item => {
+      lessonHTML += `<a href="${item.url}" target="_blank">Học ${item.name}</a><br>`;
     });
     
     categoryDiv.innerHTML = lessonHTML;
     dataContainer.appendChild(categoryDiv);
   });
+  
+  console.log('Render tutorials hoàn tất');
 }
 
 // ===== RENDER COURSES (KHÓA HỌC) =====
@@ -68,70 +80,7 @@ function renderCourses(data) {
   });
 }
 
-// ===== RENDER CODE EXAMPLES =====
-function renderCodeExamples(data) {
-  const htmlCodeElement = document.getElementById('html-code');
-  if (htmlCodeElement) {
-    htmlCodeElement.innerHTML = `
-      <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;My Page&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;Hello World&lt;/h1&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-    `;
-  }
-  
-  const cssCodeElement = document.getElementById('css-code');
-  if (cssCodeElement) {
-    cssCodeElement.innerHTML = `
-      <pre><code>body {
-  font-family: Arial, sans-serif;
-  background-color: #f3f4f6;
-  margin: 0;
-  padding: 20px;
-}
-
-h1 {
-  color: #1f2937;
-  text-align: center;
-}</code></pre>
-    `;
-  }
-  
-  const jsCodeElement = document.getElementById('java-code');
-  if (jsCodeElement) {
-    jsCodeElement.innerHTML = `
-      <pre><code>const greeting = (name) => {
-  console.log(\`Hello, \${name}!\`);
-};
-
-greeting('Developer');</code></pre>
-    `;
-  }
-  
-  const pythonCodeElement = document.getElementById('python-code');
-  if (pythonCodeElement) {
-    pythonCodeElement.innerHTML = `
-      <pre><code>def greet(name):
-    print(f"Hello, {name}!")
-
-greet("Developer")</code></pre>
-    `;
-  }
-  
-  const sqlCodeElement = document.getElementById('sql-code');
-  if (sqlCodeElement) {
-    sqlCodeElement.innerHTML = `
-      <pre><code>SELECT * FROM users 
-WHERE age > 18 
-ORDER BY created_at DESC;</code></pre>
-    `;
-  }
-}
+// Code examples đã được xử lý trong script.js
 
 // ===== KHỞI TẠO ỨNG DỤNG =====
 async function initializeApp() {
@@ -142,7 +91,6 @@ async function initializeApp() {
   if (data) {
     renderTutorials(data);
     renderCourses(data);
-    renderCodeExamples(data);
     console.log('Dữ liệu đã được render thành công!');
   } else {
     console.error('Không thể load dữ liệu');
