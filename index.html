@@ -22,7 +22,7 @@
   <body>
     <header>
       <div class="header-left">
-        <a href="#">
+        <a href="./index.html">
           <div class="logo">
             <img src="./public/Storage/Images/logostudy2.jpg" alt="" />
           </div>
@@ -340,6 +340,21 @@
         </div>
       </div>
     </footer>
+    <div
+      class="nested-navigation-container nested-navigation-hidden"
+      id="exercises-container-id"
+    >
+      <div class="nested-navigation-container-close" id="exercises-close-btn">
+        <button><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="nested-navigation-container-content" id="exercises-content">
+        <h1>Luyện tập</h1>
+        <div class="nested-navigation-container-data" id="exercises-list">
+          <!-- Sẽ được render bằng JS -->
+        </div>
+      </div>
+    </div>
+    <script src="./public/JS/render-exersise.js"></script>
     <script src="./public/JS/render-references.js"></script>
     <script src="./public/JS/render-data.js"></script>
     <script src="./public/JS/script.js"></script>

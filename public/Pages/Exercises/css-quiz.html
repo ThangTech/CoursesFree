@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Quiz - Luyện tập</title>
+  <link rel="stylesheet" href="../../CSS/Quiz_Editor/css-quiz.css">
+  <link
+      rel="shortcut icon"
+      href="../../../public/Storage/Images/icons8-books-emoji-48.png"
+      type="image/x-icon"/>
+</head>
+<body>
+  <div class="container">
+    <button class="home-button" onclick="window.location.href = '../../../index.html';">Quay về trang chủ</button>
+    <h1>CSS Quiz</h1>
+    <p class="subtitle">Kiểm tra kiến thức CSS của bạn</p>
+
+    <div class="progress">
+      <span class="score" id="score">0/0</span>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <div class="quiz-section" id="quiz-container"></div>
+
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="submitQuiz()">Nộp bài kiểm tra</button>
+      <button class="btn btn-secondary" onclick="resetQuiz()">Làm lại</button>
+    </div>
+  </div>
+  <script src="../../JS/Quiz-Editors/css-quiz.js"></script>
+</body>
+</html>

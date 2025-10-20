@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>CSS Editor</title>
+  <link
+    rel="stylesheet"
+    data-name="vs/editor/editor.main"
+    href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.20.0/min/vs/editor/editor.main.min.css"
+  />
+  <link rel="stylesheet" href="../../CSS/Quiz_Editor/css-editor.css">
+</head>
+<body>
+  <div class="header">
+    <a href="../../../index.html" class="home-btn" title="Về trang chủ">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      Trang chủ
+    </a>
+    <h2>CSS Challenge</h2>
+  </div>
+
+  <div class="container">
+    <div class="editor-panel">
+      <div class="panel-label">CSS Code</div>
+      <div id="editor"></div>
+    </div>
+
+    <div class="right-panel">
+      <div class="preview-panel">
+        <div class="panel-label">
+          <span>Preview</span>
+          <div>
+            <button class="check-button" onclick="checkChallenge()">
+              ✓ Kiểm tra
+            </button>
+          </div>
+        </div>
+        <iframe id="preview"></iframe>
+      </div>
+
+      <div class="challenge-panel">
+        <div class="panel-label">Challenge</div>
+        <div class="challenge-content" id="challenge"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-overlay" id="resultOverlay">
+    <div class="result-box" id="resultBox">
+      <div class="result-icon" id="resultIcon"></div>
+      <div class="result-title" id="resultTitle"></div>
+      <div class="result-message" id="resultMessage"></div>
+      <div class="requirement-list" id="requirementList"></div>
+      <div class="result-buttons">
+        <button class="retry-button" onclick="closeResult()">Đóng</button>
+        <button
+          class="next-button"
+          id="nextButton"
+          style="display: none"
+          onclick="nextChallenge()"
+        >
+          Bài tiếp theo →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs/loader.min.js"></script>
+  <script src="../../JS/Quiz-Editors/css-editor.js"></script>
+</body>
+</html>
