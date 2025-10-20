@@ -3,37 +3,37 @@ const exercisesList = [
     id: 'html-editor',
     title: 'HTML - Bài tập Code',
     description: 'Thực hành viết code HTML',
-    url: './public/pages/exercises/html-editor.html'
+    url: '../Pages/Exercises/html-editor.html'
   },
   {
     id: 'html-quiz',
     title: 'HTML - Trắc nghiệm',
     description: 'Kiểm tra kiến thức HTML',
-    url: './public/pages/exercises/html-quiz.html'
+    url: '../Pages/Exercises/html-quiz.html'
   },
   {
     id: 'css-editor',
     title: 'CSS - Bài tập Code',
     description: 'Thực hành viết code CSS',
-    url: './public/pages/exercises/css-editor.html'
+    url: '../Pages/Exercises/css-editor.html'
   },
   {
     id: 'css-quiz',
     title: 'CSS - Trắc nghiệm',
     description: 'Kiểm tra kiến thức CSS',
-    url: './public/pages/exercises/css-quiz.html'
+    url: '../Pages/Exercises/css-quiz.html'
   },
   {
     id: 'js-editor',
     title: 'JavaScript - Bài tập Code',
     description: 'Thực hành viết code JavaScript',
-    url: './public/pages/exercises/js-editor.html'
+    url: '../Pages/Exercises/js-editor.html'
   },
   {
     id: 'js-quiz',
     title: 'JavaScript - Trắc nghiệm',
     description: 'Kiểm tra kiến thức JavaScript',
-    url: './public/pages/exercises/js-quiz.html'
+    url: '../Pages/Exercises/js-quiz.html'
   }
 ];
 
