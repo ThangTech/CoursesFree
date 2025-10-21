@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Player - My's Course</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="./public/Storage/Images/icons8-books-emoji-48.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./public/CSS/video-player.css" />
+  </head>
+  <body>
+    <div class="video-header">
+      <a href="./index.html#video" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        Quay lại
+      </a>
+      <h1>Video Học Lập Trình</h1>
+    </div>
+
+    <div class="video-container">
+      <div class="video-main">
+        <div class="video-player" id="video-player">
+          <!-- YouTube iframe sẽ được load ở đây -->
+        </div>
+
+        <div class="video-details">
+          <h2 id="video-title">Đang tải...</h2>
+
+          <div class="video-meta">
+            <span>
+              <i class="fa-solid fa-eye"></i>
+              <span id="video-views">-</span>
+            </span>
+            <span>
+              <i class="fa-solid fa-calendar"></i>
+              <span id="video-date">-</span>
+            </span>
+            <span>
+              <i class="fa-solid fa-clock"></i>
+              <span id="video-duration">-</span>
+            </span>
+          </div>
+
+          <div class="video-channel">
+            <div class="channel-avatar" id="channel-avatar">
+              <i class="fa-brands fa-youtube"></i>
+            </div>
+            <div class="channel-info">
+              <h3 id="channel-name">-</h3>
+              <p id="channel-subscribers">-</p>
+            </div>
+          </div>
+
+          <div class="video-description" id="video-description">
+            Đang tải mô tả...
+          </div>
+        </div>
+      </div>
+
+      <div class="video-sidebar">
+        <div class="search-container">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Tìm kiếm video..."
+            class="search-input"
+          />
+          <button id="search-btn" class="search-btn">Tìm kiếm</button>
+        </div>
+        <h3 class="sidebar-title">Video liên quan</h3>
+        <div id="related-videos">
+          <div class="loading">
+            <i class="fa-solid fa-spinner"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./public/JS/render-video.js"></script>
+  </body>
+</html>

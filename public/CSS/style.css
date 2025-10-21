@@ -986,55 +986,55 @@ section {
 }
 /* Exersise */
 #exercises-iframe.active {
-    display: block;
-  }
+  display: block;
+}
 
-  #exercises-list.hidden {
-    display: none;
-  }
-  #exercises-iframe.active {
+#exercises-list.hidden {
+  display: none;
+}
+#exercises-iframe.active {
   display: block !important;
 }
 
-  .exercise-link {
-    display: block;
-    padding: 1rem;
-    margin-bottom: 0.75rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-left: 4px solid #f0db4f;
-    border-radius: 4px;
-    color: #ffffff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-  }
+.exercise-link {
+  display: block;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 4px solid #f0db4f;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
 
-  .exercise-link:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
+.exercise-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
 
-  .exercise-link-title {
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-  }
+.exercise-link-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
 
-  .exercise-link-desc {
-    font-size: 0.85rem;
-    color: #d1d5db;
-  }
+.exercise-link-desc {
+  font-size: 0.85rem;
+  color: #d1d5db;
+}
 
-  .back-btn {
-    display: inline-block;
-    margin-bottom: 1rem;
-    padding: 0.5rem 1rem;
-    background: rgba(240, 219, 79, 0.1);
-    border: 1px solid #f0db4f;
-    color: #f0db4f;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 600;
-  }
+.back-btn {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(240, 219, 79, 0.1);
+  border: 1px solid #f0db4f;
+  color: #f0db4f;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
 
-  .back-btn:hover {
-    background: rgba(240, 219, 79, 0.2);
-  }
+.back-btn:hover {
+  background: rgba(240, 219, 79, 0.2);
+}
