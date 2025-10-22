@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My's Course</title>
+    <title data-translate="site_title">My's Course</title>
     <link rel="stylesheet" href="./public/CSS/style.css" />
+    <link rel="stylesheet" href="./public/CSS/darkmode.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -27,15 +28,30 @@
             <img src="./public/Storage/Images/logostudy2.jpg" alt="" />
           </div>
         </a>
-        <a href="#Tutorial" class="menu-btn" id="tutorial-btn">
+        <a
+          href="#Tutorial"
+          class="menu-btn"
+          id="tutorial-btn"
+          data-translate="tutorial"
+        >
           Hướng dẫn
           <i class="fa-solid fa-caret-down"></i>
         </a>
-        <a href="#References" class="menu-btn" id="refernces-btn">
+        <a
+          href="#References"
+          class="menu-btn"
+          id="refernces-btn"
+          data-translate="references"
+        >
           Tài liệu
           <i class="fa-solid fa-caret-down"></i>
         </a>
-        <a href="#Exercises" class="menu-btn" id="excercises-btn">
+        <a
+          href="#Exercises"
+          class="menu-btn"
+          id="excercises-btn"
+          data-translate="exercises"
+        >
           Luyện tập
           <i class="fa-solid fa-caret-down" class="menu-btn"></i>
         </a>
@@ -43,21 +59,26 @@
           href="video-player.html?v=kN1XP-Bef7w&topic=html%20tutorial"
           class="menu-btn"
           id="video-btn"
+          data-translate="video"
         >
           Video
         </a>
         <!-- mobile-view -->
-        <div class="menu-btn" id="menu-btn-Mobile">
+        <div class="menu-btn" id="menu-btn-Mobile" data-translate="menu">
           Danh mục
           <i class="fa-solid fa-caret-down" class="menu-btn"></i>
         </div>
       </div>
       <div class="header-right">
-        <div class="toggleLightDark btn">
+        <div class="toggleLightDark btn" id="toggleDarkMode">
           <i class="fa-solid fa-circle-half-stroke"></i>
         </div>
-        <div class="toggleTranslate">
-          <i class="fa-solid fa-earth-africa"></i>
+        <div class="language-selector">
+          <select id="languageSelect">
+            <option value="vi" data-translate="lang_vi">🇻🇳 Tiếng Việt</option>
+            <option value="en" data-translate="lang_en">🇺🇸 English</option>
+            <option value="zh" data-translate="lang_zh">🇨🇳 简体中文</option>
+          </select>
         </div>
         <div class="toggleSearch">
           <i class="fa-solid fa-magnifying-glass"></i>
@@ -66,13 +87,24 @@
           href="#Certificate"
           class="btn btn-link bg-pink"
           id="cectificate-btn"
+          data-translate="certificate"
         >
           Hồ sơ học tập
         </a>
-        <a href="#Project" class="btn btn-link bg-yellow" id="free-btn">
+        <a
+          href="#Project"
+          class="btn btn-link bg-yellow"
+          id="free-btn"
+          data-translate="project"
+        >
           Dự án của tôi
         </a>
-        <a href="#Login" class="btn btn-link bg-green" id="login-btn">
+        <a
+          href="#Login"
+          class="btn btn-link bg-green"
+          id="login-btn"
+          data-translate="login"
+        >
           Đăng nhập
         </a>
       </div>
@@ -82,21 +114,42 @@
         <button id="mobile-nav-close"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <ul>
-        <a href="#Tutorial" class="menu-btn-mobile_menu">
+        <a
+          href="#Tutorial"
+          class="menu-btn-mobile_menu"
+          data-translate="tutorial"
+        >
           Hướng dẫn
           <i class="fa-solid fa-caret-down"></i>
         </a>
-        <a href="#References" class="menu-btn-mobile_menu">
+        <a
+          href="#References"
+          class="menu-btn-mobile_menu"
+          data-translate="references"
+        >
           Tài liệu
           <i class="fa-solid fa-caret-down"></i>
         </a>
-        <a href="#Exercises" class="menu-btn-mobile_menu">
+        <a
+          href="#Exercises"
+          class="menu-btn-mobile_menu"
+          data-translate="exercises"
+        >
           Luyện tập
           <i class="fa-solid fa-caret-down"></i>
         </a>
-        <a href="#video" class="menu-btn-mobile_menu"> Video </a>
-        <a href="#Certificate" class="menu-btn-mobile_menu"> Hồ sơ học tập </a>
-        <a href="#Project" class="menu-btn-mobile_menu"> Dự án của tôi </a>
+        <a href="#video" class="menu-btn-mobile_menu" data-translate="video"
+          >Video</a
+        >
+        <a
+          href="#Certificate"
+          class="menu-btn-mobile_menu"
+          data-translate="certificate"
+          >Hồ sơ học tập</a
+        >
+        <a href="#Project" class="menu-btn-mobile_menu" data-translate="project"
+          >Dự án của tôi</a
+        >
       </ul>
     </div>
     <!-- nested navigation -->
@@ -125,16 +178,19 @@
 
     <section class="section section-heading">
       <div class="section-container">
-        <h1>Bắt đầu học</h1>
-        <p>Từng bước xây dựng kỹ năng lập trình web</p>
+        <h1 data-translate="welcome">Bắt đầu học</h1>
+        <p data-translate="welcome_desc">
+          Từng bước xây dựng kỹ năng lập trình web
+        </p>
         <div class="section-heading-search">
           <input
             type="text"
             placeholder="Tìm kiếm hướng dẫn về HTML, CSS,..."
+            data-translate-placeholder="search_placeholder"
           />
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
-        <a href="">Không biết bắt đầu từ đâu?</a>
+        <a href="" data-translate="start_guide">Không biết bắt đầu từ đâu?</a>
       </div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -150,82 +206,106 @@
     </section>
     <section class="section-html">
       <div class="section-left">
-        <h1>HTML</h1>
-        <p>Ngôn ngữ để xây dựng trang web</p>
-        <a href="" class="bg-green">Học HTML</a>
-        <a href="" class="bg-yellow">Video hướng dẫn</a>
-        <a href="" class="bg-black">Tài liệu HTML</a>
-        <a href="" class="bg-pink">Video</a>
+        <h1 data-translate="html_title">HTML</h1>
+        <p data-translate="html_desc">Ngôn ngữ để xây dựng trang web</p>
+        <a href="" class="bg-green" data-translate="learn_html">Học HTML</a>
+        <a href="" class="bg-yellow" data-translate="html_video"
+          >Video hướng dẫn</a
+        >
+        <a href="" class="bg-black" data-translate="html_reference"
+          >Tài liệu HTML</a
+        >
+        <a href="" class="bg-pink" data-translate="video">Video</a>
       </div>
       <div class="section-right">
         <div class="editor-container">
-          <h1>Cấu trúc HTML</h1>
+          <h1 data-translate="html_structure">Cấu trúc HTML</h1>
           <div class="editor" id="html-code"></div>
-          <a href="" class="editor-btn">Thử ngay</a>
+          <a href="" class="editor-btn" data-translate="try_now">Thử ngay</a>
         </div>
       </div>
     </section>
     <section class="section-css">
       <div class="section-left">
-        <h1>CSS</h1>
-        <p>Định dạng và trình bày trang web</p>
-        <a href="" class="bg-green">Học CSS</a>
-        <a href="" class="bg-teal">Video hướng dẫn</a>
-        <a href="" class="bg-black">Tài liệu CSS</a>
+        <h1 data-translate="css_title">CSS</h1>
+        <p data-translate="css_desc">Định dạng và trình bày trang web</p>
+        <a href="" class="bg-green" data-translate="learn_css">Học CSS</a>
+        <a href="" class="bg-teal" data-translate="css_video"
+          >Video hướng dẫn</a
+        >
+        <a href="" class="bg-black" data-translate="css_reference"
+          >Tài liệu CSS</a
+        >
       </div>
       <div class="section-right">
         <div class="editor-container">
-          <h1>Cấu trúc CSS</h1>
+          <h1 data-translate="css_structure">Cấu trúc CSS</h1>
           <div class="editor" id="css-code"></div>
-          <a href="" class="editor-btn">Thử ngay</a>
+          <a href="" class="editor-btn" data-translate="try_now">Thử ngay</a>
         </div>
       </div>
     </section>
     <section class="section-javascript">
       <div class="section-left">
-        <h1>Javascript</h1>
-        <p>Giúp trang web trở nên động và linh hoạt</p>
-        <a href="" class="bg-green">Học Javascript</a>
-        <a href="" class="bg-teal">Video hướng dẫn</a>
-        <a href="" class="bg-yellow">Tài liệu Javascript</a>
+        <h1 data-translate="js_title">Javascript</h1>
+        <p data-translate="js_desc">Giúp trang web trở nên động và linh hoạt</p>
+        <a href="" class="bg-green" data-translate="learn_js">Học Javascript</a>
+        <a href="" class="bg-teal" data-translate="js_video">Video hướng dẫn</a>
+        <a href="" class="bg-yellow" data-translate="js_reference"
+          >Tài liệu Javascript</a
+        >
       </div>
       <div class="section-right">
         <div class="editor-container">
-          <h1 class="text-black">Cấu trúc JavaScript</h1>
+          <h1 class="text-black" data-translate="js_structure">
+            Cấu trúc JavaScript
+          </h1>
           <div class="editor text-black" id="java-code"></div>
-          <a href="" class="editor-btn">Thử ngay</a>
+          <a href="" class="editor-btn" data-translate="try_now">Thử ngay</a>
         </div>
       </div>
     </section>
     <section class="section-python">
       <div class="section-left">
-        <h1>Python</h1>
-        <p>Làm việc với dữ liệu và AI</p>
-        <a href="" class="bg-green">Học Python</a>
-        <a href="" class="bg-pink">Video hướng dẫn</a>
-        <a href="" class="bg-yellow">Tài liệu Python</a>
+        <h1 data-translate="python_title">Python</h1>
+        <p data-translate="python_desc">Làm việc với dữ liệu và AI</p>
+        <a href="" class="bg-green" data-translate="learn_python">Học Python</a>
+        <a href="" class="bg-pink" data-translate="python_video"
+          >Video hướng dẫn</a
+        >
+        <a href="" class="bg-yellow" data-translate="python_reference"
+          >Tài liệu Python</a
+        >
       </div>
       <div class="section-right">
         <div class="editor-container">
-          <h1 class="text-black">Cấu trúc Python</h1>
+          <h1 class="text-black" data-translate="python_structure">
+            Cấu trúc Python
+          </h1>
           <div class="editor text-black" id="python-code"></div>
-          <a href="" class="editor-btn">Thử ngay</a>
+          <a href="" class="editor-btn" data-translate="try_now">Thử ngay</a>
         </div>
       </div>
     </section>
     <section class="section-sql">
       <div class="section-left">
-        <h1>SQL</h1>
-        <p>Quản lý và thao tác dữ liệu</p>
-        <a href="" class="bg-green">Học SQL</a>
-        <a href="" class="bg-pink">Video hướng dẫn</a>
-        <a href="" class="bg-black">Tài liệu SQL</a>
+        <h1 data-translate="sql_title">SQL</h1>
+        <p data-translate="sql_desc">Quản lý và thao tác dữ liệu</p>
+        <a href="" class="bg-green" data-translate="learn_sql">Học SQL</a>
+        <a href="" class="bg-pink" data-translate="sql_video"
+          >Video hướng dẫn</a
+        >
+        <a href="" class="bg-black" data-translate="sql_reference"
+          >Tài liệu SQL</a
+        >
       </div>
       <div class="section-right">
         <div class="editor-container">
-          <h1 class="text-black">Cấu trúc SQL</h1>
+          <h1 class="text-black" data-translate="sql_structure">
+            Cấu trúc SQL
+          </h1>
           <div class="editor text-black" id="sql-code"></div>
-          <a href="" class="editor-btn">Thử ngay</a>
+          <a href="" class="editor-btn" data-translate="try_now">Thử ngay</a>
         </div>
       </div>
     </section>
@@ -236,34 +316,38 @@
     </section>
     <div class="section-exercise">
       <div class="section-exercise-container">
-        <h1>Bài tập và Quizzes</h1>
-        <p>Kiểm tra kĩ năng của bạn</p>
+        <h1 data-translate="exercises_quizzes">Bài tập và Quizzes</h1>
+        <p data-translate="exercises_desc">Kiểm tra kĩ năng của bạn</p>
         <div class="section-exercise-quiz">
-          <a href="" class="bg-green">Bài tập</a>
-          <a href="" class="bg-yellow">Quizzes</a>
+          <a href="" class="bg-green" data-translate="exercises">Bài tập</a>
+          <a href="" class="bg-yellow" data-translate="quizzes">Quizzes</a>
         </div>
       </div>
     </div>
 
     <div class="template-web">
       <div class="template-web-container">
-        <h1>Mẫu trang web</h1>
-        <p>Bộ sưu tập mẫu HTML miễn phí</p>
+        <h1 data-translate="web_templates">Mẫu trang web</h1>
+        <p data-translate="web_templates_desc">Bộ sưu tập mẫu HTML miễn phí</p>
         <a href="">
           <img
             src="./public/Storage/Images/w3css_templates.webp"
             alt="Ảnh mẫu"
           />
         </a>
-        <a href="" class="webTemplateLink bg-black">Khám phá ngay</a>
+        <a href="" class="webTemplateLink bg-black" data-translate="explore_now"
+          >Khám phá ngay</a
+        >
       </div>
     </div>
 
     <section class="howtosection">
       <div class="howtosection-container">
-        <h1>Bố cục trong trang web</h1>
-        <p>Đoạn mã cho HTML, CSS và JavaScript</p>
-        <p>Cách tạo slideshow:</p>
+        <h1 data-translate="web_layout">Bố cục trong trang web</h1>
+        <p data-translate="web_layout_desc">
+          Đoạn mã cho HTML, CSS và JavaScript
+        </p>
+        <p data-translate="slideshow_howto">Cách tạo slideshow:</p>
       </div>
       <div class="howtosection-slide">
         <div class="howtosection-btn">
@@ -288,7 +372,11 @@
         <div class="howtosection-bottom">
           <div class="verticalBox">
             <a href="">
-              <button class="bg-green" style="cursor: pointer">
+              <button
+                class="bg-green"
+                style="cursor: pointer"
+                data-translate="learn_howto"
+              >
                 Học cách tạo
               </button>
             </a>
@@ -299,14 +387,14 @@
     <footer class="footer">
       <div class="footer-top">
         <div class="menu">
-          <a href="">Quizzes</a>
-          <a href="">Bài tập</a>
-          <a href="">Hỗ trợ</a>
-          <a href="">Tài liệu miễn phí</a>
+          <a href="" data-translate="quizzes">Quizzes</a>
+          <a href="" data-translate="exercises">Bài tập</a>
+          <a href="" data-translate="support">Hỗ trợ</a>
+          <a href="" data-translate="free_resources">Tài liệu miễn phí</a>
         </div>
         <div class="replyAndAbout">
-          <a href="">Phản hồi</a>
-          <a href="">Về chúng tôi</a>
+          <a href="" data-translate="feedback">Phản hồi</a>
+          <a href="" data-translate="about_us">Về chúng tôi</a>
         </div>
       </div>
       <div class="socialMedia">
@@ -325,7 +413,7 @@
         ></a>
       </div>
       <div class="copyright">
-        <p>
+        <p data-translate="copyright">
           © 2025 Học Lập Trình Online. Nền tảng học lập trình dành cho mọi đối
           tượng — từ người mới bắt đầu đến lập trình viên chuyên nghiệp. Chúng
           tôi cam kết mang đến kiến thức chất lượng, cập nhật xu hướng công nghệ
@@ -338,9 +426,13 @@
       <div class="like-popup" id="likePopup">
         <div class="popup-content">
           <span class="close-popup" id="closePopup">&times;</span>
-          <h3>Cảm ơn đã ủng hộ!</h3>
-          <p>Theo dõi tôi tại:</p>
-          <a href="https://github.com/ThangTech" target="_blank">
+          <h3 data-translate="thanks_support">Cảm ơn đã ủng hộ!</h3>
+          <p data-translate="follow_me">Theo dõi tôi tại:</p>
+          <a
+            href="https://github.com/ThangTech"
+            target="_blank"
+            data-translate="github_link"
+          >
             <i class="fa-brands fa-github"></i> github.com/ThangTech
           </a>
         </div>
@@ -354,12 +446,13 @@
         <button><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="nested-navigation-container-content" id="exercises-content">
-        <h1>Luyện tập</h1>
+        <h1 data-translate="exercises">Luyện tập</h1>
         <div class="nested-navigation-container-data" id="exercises-list">
           <!-- Sẽ được render bằng JS -->
         </div>
       </div>
     </div>
+    <script src="./public/JS/translate.js"></script>
     <script src="./public/JS/render-exersise.js"></script>
     <script src="./public/JS/render-references.js"></script>
     <script src="./public/JS/render-data.js"></script>

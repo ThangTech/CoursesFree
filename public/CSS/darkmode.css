@@ -1,0 +1,345 @@
+/* Dark Mode Styles applied when .dark-mode is on <body> */
+.dark-mode {
+  background-color: var(--bs-black);
+  color: var(--bs-neoWhite);
+}
+
+/* Header */
+.dark-mode header {
+  background-color: var(--bs-black); /* Force black for header */
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode header .menu-btn {
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode header .menu-btn:hover {
+  background-color: var(--bs-teal);
+  color: var(--bs-white);
+}
+
+.dark-mode header .menu-btn:first-child:hover {
+  background-color: transparent;
+}
+
+.dark-mode header .header-right a {
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode header .toggleLightDark,
+.dark-mode header .toggleSearch,
+.dark-mode header .toggleTranslate {
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode header .toggleLightDark:hover,
+.dark-mode header .toggleSearch:hover,
+.dark-mode header .toggleTranslate:hover {
+  color: var(--bs-green);
+}
+
+/* Mobile Menu */
+.dark-mode .mobile-menu-container {
+  background-color: var(--bs-black); /* Force black for mobile menu */
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode .mobile-menu-container .menu-btn-mobile_menu {
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode .mobile-menu-container .mobile-menu-close-btn button {
+  color: var(--bs-neoWhite);
+}
+
+/* Nested Navigation (Tutorials and References) */
+.dark-mode .nested-navigation-container {
+  background-color: var(--bs-black); /* Force black for nested navigation */
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode .nested-navigation-container .nested-navigation-container-close button {
+  background-color: var(--bs-black);
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode .nested-navigation-container .nested-navigation-container-close button:hover {
+  background-color: var(--bs-neoWhite);
+  color: var(--bs-black);
+}
+
+.dark-mode .nested-navigation-container .nested-navigation-container-content h1 {
+  color: var(--bs-green);
+}
+
+.dark-mode .nested-navigation-container .nested-navigation-item h2 {
+  color: var(--bs-green);
+}
+
+.dark-mode .nested-navigation-container .nested-navigation-item a {
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode .nested-navigation-container .nested-navigation-item a:hover {
+  background-color: var(--bs-neoWhite);
+  color: var(--bs-black);
+}
+
+/* Specific for References (from render-references.js) */
+.dark-mode .nested-navigation-container .nested-navigation-item span {
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode .nested-navigation-container .nested-navigation-item a[href$=".pdf"],
+.dark-mode .nested-navigation-container .nested-navigation-item a[href$=".html"] {
+  color: var(--bs-yellow);
+}
+
+.dark-mode .nested-navigation-container .nested-navigation-item a[href$=".pdf"]:hover,
+.dark-mode .nested-navigation-container .nested-navigation-item a[href$=".html"]:hover {
+  color: var(--bs-teal);
+}
+
+/* Section Heading */
+.dark-mode .section-heading {
+  background-color: var(--bs-black); /* Force black for section heading */
+}
+
+.dark-mode .section-heading h1 {
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode .section-heading p {
+  color: var(--bs-pink);
+}
+
+.dark-mode .section-heading a {
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode .section-heading a:hover {
+  color: var(--bs-teal);
+}
+
+.dark-mode .section-heading .section-heading-search input {
+  background-color: var(--bs-neoWhite);
+  color: var(--bs-black);
+}
+
+.dark-mode .section-heading .section-heading-search i {
+  background-color: var(--bs-teal);
+}
+
+/* Sections (HTML, CSS, JS, Python, SQL) - Retain original backgrounds */
+.dark-mode .section-html {
+  background-color: var(--bs-greenLight); /* Retain original greenLight */
+}
+
+.dark-mode .section-html .section-left h1,
+.dark-mode .section-html .section-left p {
+  color: var(--bs-black);
+}
+
+.dark-mode .section-html .section-right {
+  background-color: var(--bs-neoWhite); /* Retain original neoWhite */
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.1),
+    5px 5px 10px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .section-html .editor {
+  background-color: var(--bs-neoWhite);
+  color: var(--bs-black); /* Ensure code text is dark for readability */
+}
+
+.dark-mode .section-html .editor-btn {
+  background-color: var(--bs-teal);
+  color: var(--bs-white);
+}
+
+.dark-mode .section-css {
+  background-color: var(--bs-yellow); /* Retain original yellow */
+}
+
+.dark-mode .section-javascript {
+  background-color: var(--bs-black); /* Retain original black */
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode .section-python {
+  background-color: var(--bs-teal); /* Retain original teal */
+}
+
+.dark-mode .section-sql {
+  background-color: var(--bs-yellow); /* Retain original yellow */
+}
+
+.dark-mode .section-sql .editor {
+  background-color: var(--bs-neoWhite);
+  color: var(--bs-black); /* Ensure code text is dark for readability */
+}
+
+/* Courses Card (from render-data.js) */
+.dark-mode .courses-card-container {
+  background-color: var(--bs-black); /* Force black for courses container */
+}
+
+.dark-mode .courses-card-container .course-card {
+  color: var(--bs-black);
+}
+
+.dark-mode .courses-card-container .course-card h2,
+.dark-mode .courses-card-container .course-card p {
+  color: var(--bs-black);
+}
+
+.dark-mode .courses-card-container .course-card a button {
+  background-color: var(--bs-neoWhite);
+  color: var(--bs-black);
+}
+
+.dark-mode .courses-card-container .course-card a button:hover {
+  background-color: var(--bs-teal);
+}
+
+/* Section Exercise (from render-exercises.js) */
+.dark-mode .section-exercise {
+  background-color: var(--bs-greenLight); /* Retain original greenLight */
+}
+
+.dark-mode .section-exercise .section-exercise-container h1,
+.dark-mode .section-exercise .section-exercise-container p {
+  color: var(--bs-black);
+}
+
+.dark-mode .section-exercise .section-exercise-quiz a {
+  background-color: var(--bs-neoWhite);
+  color: var(--bs-black);
+}
+
+.dark-mode .section-exercise .exercise-link {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--bs-neoWhite);
+  border-left: 4px solid var(--bs-yellow);
+}
+
+.dark-mode .section-exercise .exercise-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .section-exercise .exercise-link .exercise-link-title {
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode .section-exercise .exercise-link .exercise-link-desc {
+  color: var(--bs-neoWhite);
+}
+
+/* Web Template */
+.dark-mode .template-web {
+  background-color: var(--bs-neoWhite); /* Retain original neoWhite */
+}
+
+.dark-mode .template-web .template-web-container h1,
+.dark-mode .template-web .template-web-container p {
+  color: var(--bs-black);
+}
+
+/* How-to Section */
+.dark-mode .howtosection {
+  background-color: var(--bs-white); /* Retain original white */
+}
+
+.dark-mode .howtosection .howtosection-container h1,
+.dark-mode .howtosection .howtosection-container p {
+  color: var(--bs-black);
+}
+
+.dark-mode .howtosection .howtosection-btn button {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--bs-black);
+}
+
+.dark-mode .howtosection .howtosection-btn button:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Footer */
+.dark-mode .footer {
+  background-color: var(--bs-black); /* Force black for footer */
+}
+
+.dark-mode .footer .footer-top .menu a {
+  background-color: var(--bs-neoWhite);
+  color: var(--bs-black);
+}
+
+.dark-mode .footer .footer-top .menu a:hover {
+  background-color: var(--bs-green);
+}
+
+.dark-mode .footer .replyAndAbout,
+.dark-mode .footer .socialMedia,
+.dark-mode .footer .copyright,
+.dark-mode .footer .footer-like {
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode .footer .replyAndAbout a:hover,
+.dark-mode .footer .socialMedia a:hover {
+  color: var(--bs-teal);
+}
+
+/* Like Popup */
+.dark-mode .like-popup .popup-content {
+  background: var(--bs-black); /* Force black for popup */
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode .like-popup .popup-content a {
+  color: var(--bs-teal);
+}
+
+/* Utility Classes */
+.dark-mode .bg-white {
+  background-color: var(--bs-white); /* Retain original white */
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode .bg-black {
+  background-color: var(--bs-black); /* Retain original black */
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode .bg-greenLight {
+  background-color: var(--bs-greenLight); /* Retain original greenLight */
+  color: var(--bs-black);
+}
+
+.dark-mode .bg-pink {
+  background-color: var(--bs-pink); /* Retain original pink */
+  color: var(--bs-black);
+}
+
+.dark-mode .bg-yellow {
+  background-color: var(--bs-yellow); /* Retain original yellow */
+  color: var(--bs-black);
+}
+
+.dark-mode .bg-green {
+  background-color: var(--bs-green); /* Retain original green */
+  color: var(--bs-white);
+}
+
+.dark-mode .bg-teal {
+  background-color: var(--bs-teal); /* Retain original teal */
+  color: var(--bs-white);
+}
+
+.dark-mode .text-white {
+  color: var(--bs-neoWhite);
+}
+
+.dark-mode .text-black {
+  color: var(--bs-neoWhite);
+}

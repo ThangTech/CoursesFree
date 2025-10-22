@@ -1038,3 +1038,29 @@ section {
 .back-btn:hover {
   background: rgba(240, 219, 79, 0.2);
 }
+/* language */
+.language-selector {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#languageSelect {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+}
+
+#languageSelect:hover {
+    border-color: #007bff;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+#languageSelect:focus {
+    outline: none;
+    border-color: #007bff;
+}

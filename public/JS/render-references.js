@@ -2,11 +2,9 @@
 async function fetchReferenceData() {
   try {
     const response = await fetch("./public/data/courses-data.json");
-
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-
     const data = await response.json();
     return data;
   } catch (error) {
@@ -20,62 +18,53 @@ function renderReferences(data) {
   const referencesContainer = document.getElementById(
     "references-container-id"
   );
-
-  if (!referencesContainer) {
-    return;
-  }
-
-  if (!data || !data.tutorials) {
+  if (!referencesContainer || !data.references) {
     return;
   }
 
   const contentDiv = referencesContainer.querySelector(
     ".nested-navigation-container-content"
   );
-
   if (!contentDiv) {
     return;
   }
 
-  // Xóa nội dung cũ
-  contentDiv.innerHTML = "";
+  contentDiv.innerHTML =
+    '<h1 data-translate="references_title">Tài liệu</h1><div class="nested-navigation-container-data"></div>';
+  const dataContainer = contentDiv.querySelector(
+    ".nested-navigation-container-data"
+  );
 
-  // Tạo tiêu đề
-  const titleH1 = document.createElement("h1");
-  titleH1.textContent = "Tài liệu";
-  contentDiv.appendChild(titleH1);
-
-  // Tạo container cho các category
-  const dataContainer = document.createElement("div");
-  dataContainer.className = "nested-navigation-container-data";
-
-  // Render từng category
   data.references.forEach((reference) => {
     const categoryDiv = document.createElement("div");
     categoryDiv.className = "nested-navigation-item";
 
-    // Thêm tiêu đề category
+    const categoryKey = `ref_category_${reference.category
+      .toLowerCase()
+      .replace(/\s+/g, "_")}`;
     const categoryTitle = document.createElement("h2");
+    categoryTitle.setAttribute("data-translate", categoryKey);
     categoryTitle.textContent = reference.category;
     categoryDiv.appendChild(categoryTitle);
 
-    // Render từng item trong category
     reference.items.forEach((item) => {
-      // Container cho item
       const itemContainer = document.createElement("div");
       itemContainer.style.marginBottom = "10px";
 
-      // Tiêu đề item
+      const itemKey = `ref_item_${reference.category
+        .toLowerCase()
+        .replace(/\s+/g, "_")}_${item.name.toLowerCase().replace(/\s+/g, "_")}`;
       const itemTitle = document.createElement("span");
-      itemTitle.textContent = item.name + " ";
+      itemTitle.setAttribute("data-translate", itemKey);
+      itemTitle.textContent = item.name;
       itemTitle.style.marginRight = "10px";
       itemContainer.appendChild(itemTitle);
 
-      // Link Tài liệu
       const docLink = document.createElement("a");
       docLink.href = item.documentUrl;
       docLink.target = "_blank";
       docLink.rel = "noopener noreferrer";
+      docLink.setAttribute("data-translate", "document_link");
       docLink.textContent = "[Tài liệu]";
       docLink.style.marginRight = "10px";
       docLink.style.color = "#ede385";
@@ -88,11 +77,11 @@ function renderReferences(data) {
       });
       itemContainer.appendChild(docLink);
 
-      // Link PDF
       const pdfLink = document.createElement("a");
       pdfLink.href = item.pdfUrl;
       pdfLink.target = "_blank";
       pdfLink.rel = "noopener noreferrer";
+      pdfLink.setAttribute("data-translate", "pdf_link");
       pdfLink.textContent = "[PDF]";
       pdfLink.style.color = "#ede385";
       pdfLink.style.cursor = "pointer";
@@ -111,6 +100,9 @@ function renderReferences(data) {
   });
 
   contentDiv.appendChild(dataContainer);
+  if (typeof translatePage === "function") {
+    setTimeout(() => translatePage(window.currentLang), 0);
+  }
 }
 
 // ===== EVENT LISTENER CHO REFERENCES BUTTON =====
@@ -122,9 +114,15 @@ function setupReferencesButton() {
   const referencesCloseBtn = document.getElementById("references-close-btn");
 
   if (referencesBtn && referencesContainer) {
-    referencesBtn.addEventListener("click", (e) => {
+    referencesBtn.addEventListener("click", async (e) => {
       e.preventDefault();
       referencesContainer.classList.toggle("nested-navigation-hidden");
+      if (!referencesContainer.classList.contains("nested-navigation-hidden")) {
+        const data = await fetchReferenceData();
+        if (data) {
+          renderReferences(data);
+        }
+      }
     });
 
     if (referencesCloseBtn) {
@@ -133,7 +131,6 @@ function setupReferencesButton() {
       });
     }
 
-    // Đóng references khi click ngoài
     document.addEventListener("click", (e) => {
       if (
         !referencesContainer.contains(e.target) &&
@@ -145,15 +142,8 @@ function setupReferencesButton() {
   }
 }
 
-// ===== KHỞI TẠO REFERENCES =====
 async function initializeReferences() {
-  const data = await fetchReferenceData();
-
-  if (data) {
-    renderReferences(data);
-    setupReferencesButton();
-  }
+  setupReferencesButton();
 }
 
-// ===== GỌI HÀM CHÍNH KHI PAGE LOAD =====
 document.addEventListener("DOMContentLoaded", initializeReferences);
