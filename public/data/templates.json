@@ -1,0 +1,24 @@
+{
+  "templates": [
+    {
+      "id": 1,
+      "name": "Portfolio Template",
+      "description": "Template portfolio cá nhân đơn giản",
+      "preview": "/public/Storage/Images/Templates/portfolio.jpg",
+      "demoUrl": "/public/Templates/portfolio/index.html",
+      "downloadUrl": "/public/Templates/portfolio.zip",
+      "category": "portfolio",
+      "tags": ["html", "css", "responsive"]
+    },
+    {
+      "id": 2,
+      "name": "Business Landing Page",
+      "description": "Template landing page cho doanh nghiệp",
+      "preview": "/public/Storage/Images/Templates/business.jpg",
+      "demoUrl": "/public/Templates/business/index.html",
+      "downloadUrl": "/public/Templates/business.zip",
+      "category": "business",
+      "tags": ["html", "css", "bootstrap"]
+    }
+  ]
+}

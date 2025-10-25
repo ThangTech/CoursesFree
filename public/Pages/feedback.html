@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phản Hồi - Học Lập Trình Online</title>
+    <link
+      rel="shortcut icon"
+      href="../../public/Storage/Images/icons8-books-emoji-48.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../CSS/feedback.css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("Rc4kZ8c8pIjFSmBpy");
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Phản Hồi Của Bạn</h1>
+        <p>Ý kiến của bạn giúp chúng tôi cải thiện trải nghiệm học tập</p>
+      </header>
+
+      <main class="content">
+        <form id="feedbackForm">
+          <div class="form-group">
+            <label for="name">Họ và Tên</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Nhập họ và tên của bạn"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="email@example.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="course">Khóa Học</label>
+            <select id="course" name="course" required>
+              <option value="">-- Chọn khóa học --</option>
+              <option value="html">HTML</option>
+              <option value="css">CSS</option>
+              <option value="javascript">JavaScript</option>
+              <option value="python">Python</option>
+              <option value="java">Java</option>
+              <option value="cpp">C++</option>
+              <option value="sql">SQL</option>
+              <option value="react">React</option>
+              <option value="nodejs">Node.js</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Đánh Giá Chất Lượng Khóa Học</label>
+            <div class="rating-group">
+              <div class="rating-option">
+                <input
+                  type="radio"
+                  id="rating4"
+                  name="rating"
+                  value="4"
+                  required
+                />
+                <label for="rating4"
+                  ><span class="emoji">⭐</span>Xuất sắc</label
+                >
+              </div>
+              <div class="rating-option">
+                <input type="radio" id="rating3" name="rating" value="3" />
+                <label for="rating3"><span class="emoji">😊</span>Tốt</label>
+              </div>
+              <div class="rating-option">
+                <input type="radio" id="rating2" name="rating" value="2" />
+                <label for="rating2"
+                  ><span class="emoji">😐</span>Trung bình</label
+                >
+              </div>
+              <div class="rating-option">
+                <input type="radio" id="rating1" name="rating" value="1" />
+                <label for="rating1"><span class="emoji">😕</span>Kém</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="feedback">Ý Kiến Của Bạn</label>
+            <textarea
+              id="feedback"
+              name="feedback"
+              placeholder="Chia sẻ trải nghiệm của bạn về khóa học, nội dung, giảng viên, hoặc bất kỳ góp ý nào..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Gửi Phản Hồi</button>
+
+          <div class="btn-back">
+              <a href="../../index.html">Quay về trang chủ</a>
+          </div>
+          <div id="successMessage" class="success-message">
+            <span class="emoji"></span>
+            Cảm ơn bạn đã gửi phản hồi! Chúng tôi sẽ xem xét và cải thiện dịch
+            vụ.
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("feedbackForm");
+        const successMessage = document.getElementById("successMessage");
+
+        const validateForm = (formData) => {
+          const errors = [];
+
+          if (!formData.get("name").trim()) errors.push("Vui lòng nhập họ tên");
+
+          if (!formData.get("email").trim()) errors.push("Vui lòng nhập email");
+
+          if (!formData.get("course")) errors.push("Vui lòng chọn khóa học");
+
+          if (!formData.get("rating"))
+            errors.push("Vui lòng đánh giá khóa học");
+
+          if (!formData.get("feedback").trim())
+            errors.push("Vui lòng nhập ý kiến phản hồi");
+
+          return errors;
+        };
+
+        const submitForm = async (formData) => {
+          try {
+            const templateParams = {
+              name: formData.get("name"),
+              email: formData.get("email"),
+              course: formData.get("course"),
+              rating: formData.get("rating"),
+              feedback: formData.get("feedback"),
+            };
+
+            await emailjs.send(
+              "service_d9c9m0s", 
+              "template_ln681q9", 
+              templateParams
+            );
+
+            successMessage.classList.add("show");
+            form.reset();
+
+            setTimeout(() => {
+              successMessage.classList.remove("show");
+            }, 5000);
+          } catch (error) {
+            console.error("FAILED...", error);
+            alert("Có lỗi xảy ra khi gửi phản hồi!");
+          }
+        };
+
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const submitBtn = form.querySelector(".submit-btn");
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = "Đang gửi...";
+
+          const formData = new FormData(form);
+          const errors = validateForm(formData);
+
+          if (errors.length > 0) {
+            alert(errors.join("\n"));
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = "Gửi Phản Hồi";
+            return;
+          }
+
+          await submitForm(formData);
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = "Gửi Phản Hồi";
+        });
+      });
+    </script>
+  </body>
+</html>
