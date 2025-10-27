@@ -314,3 +314,17 @@ if (darkModeBtn) {
     document.body.classList.toggle("dark-mode");
   });
 }
+
+document.addEventListener("click", function (e) {
+  const a = e.target.closest && e.target.closest("a");
+  if (!a) return;
+  if (a.getAttribute("href") === "#top") {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    history.replaceState(
+      null,
+      document.title,
+      window.location.pathname + window.location.search
+    );
+  }
+});
