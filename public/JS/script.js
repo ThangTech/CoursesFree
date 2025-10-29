@@ -328,3 +328,30 @@ document.addEventListener("click", function (e) {
     );
   }
 });
+
+// ===== CHATBOT LAUNCHER POPUP =====
+document.addEventListener("DOMContentLoaded", function () {
+  const chatbotLauncher = document.getElementById("chatbot-launcher");
+  let chatbotWindow = null;
+
+  if (chatbotLauncher) {
+    chatbotLauncher.addEventListener("click", function () {
+      if (chatbotWindow && !chatbotWindow.closed) {
+        chatbotWindow.focus();
+      } else {
+        chatbotWindow = window.open(
+          "./public/Pages/chatbotAI.html",
+          "MyCoursesChatbot",
+          "width=420,height=700,scrollbars=no,resizable=yes,left=" +
+            (screen.width - 420) +
+            ",top=100"
+        );
+      }
+    });
+    window.addEventListener("beforeunload", function () {
+      if (chatbotWindow && !chatbotWindow.closed) {
+        chatbotWindow.close();
+      }
+    });
+  }
+});

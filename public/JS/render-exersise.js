@@ -60,25 +60,27 @@ function renderExercisesList() {
     `;
     list.appendChild(link);
   });
+  
   if (typeof translatePage === "function") {
     setTimeout(() => translatePage(window.currentLang), 0);
   }
 }
 
 function setupExercisesButton() {
-  const exercisesBtn = document.getElementById("excercises-btn");
   const exercisesContainer = document.getElementById("exercises-container-id");
   const closeBtn = document.getElementById("exercises-close-btn");
 
-  if (exercisesBtn && exercisesContainer) {
-    exercisesBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      exercisesContainer.classList.toggle("nested-navigation-hidden");
+  const exercisesButtons = document.querySelectorAll('[href="#Exercises"]');
 
-      // Render và dịch khi mở
-      if (!exercisesContainer.classList.contains("nested-navigation-hidden")) {
-        renderExercisesList();
-      }
+  if (exercisesButtons.length > 0 && exercisesContainer) {
+    exercisesButtons.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        exercisesContainer.classList.toggle("nested-navigation-hidden");
+        if (!exercisesContainer.classList.contains("nested-navigation-hidden")) {
+          renderExercisesList();
+        }
+      });
     });
 
     if (closeBtn) {
@@ -88,10 +90,8 @@ function setupExercisesButton() {
     }
 
     document.addEventListener("click", (e) => {
-      if (
-        !exercisesContainer.contains(e.target) &&
-        !exercisesBtn.contains(e.target)
-      ) {
+      const isButton = Array.from(exercisesButtons).some(btn => btn.contains(e.target));
+      if (!exercisesContainer.contains(e.target) && !isButton) {
         exercisesContainer.classList.add("nested-navigation-hidden");
       }
     });

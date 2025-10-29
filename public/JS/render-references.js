@@ -13,7 +13,6 @@ async function fetchReferenceData() {
   }
 }
 
-// ===== RENDER REFERENCES (TÀI LIỆU) =====
 function renderReferences(data) {
   const referencesContainer = document.getElementById(
     "references-container-id"
@@ -100,29 +99,33 @@ function renderReferences(data) {
   });
 
   contentDiv.appendChild(dataContainer);
+  
   if (typeof translatePage === "function") {
     setTimeout(() => translatePage(window.currentLang), 0);
   }
 }
 
-// ===== EVENT LISTENER CHO REFERENCES BUTTON =====
 function setupReferencesButton() {
-  const referencesBtn = document.getElementById("refernces-btn");
   const referencesContainer = document.getElementById(
     "references-container-id"
   );
   const referencesCloseBtn = document.getElementById("references-close-btn");
 
-  if (referencesBtn && referencesContainer) {
-    referencesBtn.addEventListener("click", async (e) => {
-      e.preventDefault();
-      referencesContainer.classList.toggle("nested-navigation-hidden");
-      if (!referencesContainer.classList.contains("nested-navigation-hidden")) {
-        const data = await fetchReferenceData();
-        if (data) {
-          renderReferences(data);
+  const referencesButtons = document.querySelectorAll('[href="#References"]');
+
+  if (referencesButtons.length > 0 && referencesContainer) {
+    referencesButtons.forEach(btn => {
+      btn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        referencesContainer.classList.toggle("nested-navigation-hidden");
+        
+        if (!referencesContainer.classList.contains("nested-navigation-hidden")) {
+          const data = await fetchReferenceData();
+          if (data) {
+            renderReferences(data);
+          }
         }
-      }
+      });
     });
 
     if (referencesCloseBtn) {
@@ -130,12 +133,10 @@ function setupReferencesButton() {
         referencesContainer.classList.add("nested-navigation-hidden");
       });
     }
-
+g
     document.addEventListener("click", (e) => {
-      if (
-        !referencesContainer.contains(e.target) &&
-        !referencesBtn.contains(e.target)
-      ) {
+      const isButton = Array.from(referencesButtons).some(btn => btn.contains(e.target));
+      if (!referencesContainer.contains(e.target) && !isButton) {
         referencesContainer.classList.add("nested-navigation-hidden");
       }
     });
