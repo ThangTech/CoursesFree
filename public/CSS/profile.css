@@ -1,0 +1,164 @@
+/* Custom cho trang profile */
+.profile-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font-family: "Roboto", sans-serif;
+}
+.profile-header {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #e5e7eb;
+}
+.profile-info h1 {
+  font-size: 2.2rem;
+  margin: 0;
+  font-weight: 700;
+}
+.username {
+  color: #666;
+  font-size: 1.1rem;
+}
+.bio {
+  margin-top: 0.5rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Biểu đồ hoạt động */
+.contribution-graph {
+  background: var(--bg-color, #fff);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+.graph-title {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.graph-legend {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.graph-grid {
+  display: grid;
+  grid-template-columns: repeat(53, 1fr);
+  gap: 3px;
+  margin-top: 1rem;
+}
+.graph-day {
+  width: 11px;
+  height: 11px;
+  background: #e5e7eb;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.level-0 {
+  background: #f3f4f6;
+}
+.level-1 {
+  background: #9be9a8;
+}
+.level-2 {
+  background: #40c463;
+}
+.level-3 {
+  background: #30a14e;
+}
+.level-4 {
+  background: #216e39;
+}
+
+/* Khóa học */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.course-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+.course-card:hover {
+  transform: translateY(-4px);
+}
+.course-banner {
+  height: 100px;
+  background: linear-gradient(135deg, #ff9a56, #ff6b6b);
+}
+.course-content {
+  padding: 1rem;
+}
+.course-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.course-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.75rem;
+}
+.free-tag {
+  background: #10b981;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .avatar {
+    margin: 0 auto;
+  }
+}
+.back-btn{
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  right: 458px;
+  top: 50px;
+}
+.back-btn a{
+ text-decoration: none;
+ padding: 15px;
+ color: white;
+ background: #10b981;
+ border-radius: 50px;
+ font-weight: 500;
+}

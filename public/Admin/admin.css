@@ -1,0 +1,135 @@
+/* === ADMIN PAGE ĐẸP === */
+* {
+  font-family: "Roboto", sans-serif;
+}
+body {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.admin-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.admin-header {
+  padding: 1.5rem;
+  background: #10b981;
+  color: white;
+  text-align: center;
+}
+.admin-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.admin-header p {
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+}
+
+.admin-content {
+  padding: 2rem;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #6b7280;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.back-btn:hover {
+  background: #4b5563;
+  transform: translateY(-1px);
+}
+
+/* === BẢNG NGƯỜI DÙNG === */
+.section {
+  margin-bottom: 2.5rem;
+}
+.section h2 {
+  color: #1f2937;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+th {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+}
+tr:hover {
+  background: #f9fafb;
+}
+.action-btn {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+  transition: all 0.2s;
+}
+.delete-btn {
+  background: #ef4444;
+  color: white;
+}
+.delete-btn:hover {
+  background: #dc2626;
+}
+.stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.stat-card {
+  background: #f0f9ff;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  flex: 1;
+}
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0ea5e9;
+}
+
+/* === DARK MODE === */
+body.dark-mode .admin-container {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+body.dark-mode table {
+  background: #1a1a1a;
+}
+body.dark-mode th {
+  background: #2d2d2d;
+}
+body.dark-mode tr:hover {
+  background: #2d2d2d;
+}

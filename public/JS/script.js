@@ -355,3 +355,85 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+//Login
+document.addEventListener('DOMContentLoaded', () => {
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  const authContainer = document.getElementById('auth-container');
+
+  if (currentUser) {
+  authContainer.innerHTML = `
+    <div style="
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    ">
+      <!-- Tên người dùng -->
+      <div style="
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.9rem;
+        color: #374151;
+        font-weight: 500;
+      ">
+        <span>
+          Xin chào, 
+          <strong style="font-weight: 700; color: #10b981;">${currentUser.name}</strong>
+        </span>
+      </div>
+      <!-- Nút Đăng xuất -->
+      <button id="logout-btn" 
+              style="
+                background: #ef4444;
+                color: white;
+                font-weight: 600;
+                font-size: 0.85rem;
+                padding: 8px 14px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.2s;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+              "
+              onmouseover="this.style.background='#dc2626'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 8px rgba(239,68,68,0.3)'"
+              onmouseout="this.style.background='#ef4444'; this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.1)'">
+        Đăng xuất
+      </button>
+
+      <!-- Nút Admin (chỉ hiện khi là admin) -->
+      ${currentUser.username === 'admin' ? `
+        <a href="../../public/Admin/admin.html" 
+           style="
+             display: inline-block;
+             padding: 8px 16px;
+             background: #7c3aed;
+             color: white;
+             font-weight: 600;
+             font-size: 0.85rem;
+             text-decoration: none;
+             border-radius: 8px;
+             transition: all 0.2s;
+             box-shadow: 0 2px 4px rgba(124,58,237,0.3);
+           "
+           onmouseover="this.style.background='#6d28d9'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 8px rgba(124,58,237,0.4)'"
+           onmouseout="this.style.background='#7c3aed'; this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(124,58,237,0.3)'">
+          Admin
+        </a>
+      ` : ''}
+    </div>
+  `;
+
+  const logoutBtn = document.getElementById('logout-btn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      if (confirm('Bạn có chắc muốn đăng xuất?')) {
+        localStorage.removeItem('currentUser');
+        location.reload();
+      }
+    });
+  }
+}
+});

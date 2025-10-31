@@ -1,0 +1,196 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 1rem;
+}
+
+/* === CONTAINER CHÍNH === */
+.login-wrapper {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  width: 100%;
+  max-width: 420px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === HEADER === */
+.login-header {
+  text-align: center;
+  padding: 1.8rem 1rem 1rem;
+  background: #f8f9fa;
+}
+.login-header h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+.login-header p {
+  margin: 0.5rem 0 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* === TABS === */
+.login-tabs {
+  display: flex;
+  background: #f1f3f5;
+}
+.tab {
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  position: relative;
+  color: #555;
+}
+.tab:hover {
+  background: #e9ecef;
+}
+.tab.active {
+  background: white;
+  color: #10b981;
+}
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #10b981;
+  border-radius: 2px;
+}
+
+/* === FORM === */
+.form-container {
+  padding: 2rem;
+}
+.form-group {
+  margin-bottom: 1.1rem;
+}
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #444;
+  font-size: 0.95rem;
+}
+input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s;
+  background: #fafafa;
+}
+input:focus {
+  outline: none;
+  border-color: #10b981;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* === NÚT === */
+button {
+  width: 100%;
+  padding: 0.9rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 0.5rem;
+}
+button:hover {
+  background: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+button:active {
+  transform: translateY(0);
+}
+
+/* === THÔNG BÁO === */
+.error,
+.success {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+.error {
+  color: #ef4444;
+  background: #fee2e2;
+}
+.success {
+  color: #10b981;
+  background: #d1fae5;
+}
+
+/* === LIÊN KẾT === */
+.link {
+  text-align: center;
+  margin-top: 1.2rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+.link a {
+  color: #10b981;
+  text-decoration: none;
+  font-weight: 500;
+}
+.link a:hover {
+  text-decoration: underline;
+}
+
+/* === DARK MODE === */
+body.dark-mode .login-wrapper {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+body.dark-mode .login-header {
+  background: #2d2d2d;
+}
+body.dark-mode input {
+  background: #2d2d2d;
+  border-color: #444;
+  color: #e0e0e0;
+}
+body.dark-mode .tab {
+  color: #ccc;
+}
+body.dark-mode .tab.active {
+  background: #1a1a1a;
+}
+body.dark-mode .link {
+  color: #aaa;
+}

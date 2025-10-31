@@ -1138,3 +1138,24 @@ section {
     height: 10px;
   }
 }
+/* logout */
+#logout-btn {
+  background: green !important;
+  color: white !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  transition: all 0.3s !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  margin-left: 20px !important;
+}
+#logout-btn:hover {
+  background: #dc2626 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3) !important;
+}
+#logout-btn:active {
+  transform: translateY(0) !important;
+}

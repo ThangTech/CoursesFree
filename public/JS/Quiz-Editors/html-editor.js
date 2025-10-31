@@ -3,6 +3,7 @@ let currentChallengeIndex = 0;
 
 const challenges = [
   {
+    id: "html-lesson-1",
     title: "Tiêu đề và đoạn văn đầu tiên",
     description: `
           <h3>Nhiệm vụ</h3>
@@ -53,6 +54,7 @@ const challenges = [
     ],
   },
   {
+    id: "html-lesson-2",
     title: "Danh sách và liên kết",
     description: `
           <h3>Nhiệm vụ</h3>
@@ -98,6 +100,7 @@ const challenges = [
     ],
   },
   {
+    id: "html-lesson-3",
     title: "Hình ảnh và thuộc tính",
     description: `
           <h3>Nhiệm vụ</h3>
@@ -236,7 +239,9 @@ function showResult(passed, results) {
     icon.textContent = "🎉";
     title.textContent = "Chính xác!";
     message.textContent = "Tuyệt vời! Bạn đã hoàn thành thử thách này.";
-
+    const lessonId = challenges[currentChallengeIndex].id;
+    saveLessonProgress(lessonId);
+    
     if (currentChallengeIndex < challenges.length - 1) {
       nextBtn.style.display = "inline-block";
     } else {
@@ -273,7 +278,7 @@ function nextChallenge() {
   loadChallenge(currentChallengeIndex + 1);
 }
 
-// Auto-update preview when typing
+
 setInterval(() => {
   if (editor) {
     updatePreview();

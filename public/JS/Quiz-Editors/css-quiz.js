@@ -93,7 +93,7 @@ function submitQuiz() {
   const total = quiz.questions.length;
   let answered = 0;
   let correctCount = 0;
-
+  
   quiz.questions.forEach((q) => {
     const selected = document.querySelector(`input[name="q${q.id}"]:checked`);
     const resultDiv = document.getElementById(`result-${q.id}`);
@@ -139,6 +139,13 @@ function submitQuiz() {
   document.getElementById("progressFill").style.width = `${
     (correctCount / total) * 100
   }%`;
+
+  
+  if (correctCount >= total * 0.8) {
+    const quizId = window.location.pathname.includes('html-quiz') ? 'html-quiz' :
+                   window.location.pathname.includes('css-quiz') ? 'css-quiz' : 'js-quiz';
+    saveLessonProgress(quizId);
+  }
 }
 
 function resetQuiz() {

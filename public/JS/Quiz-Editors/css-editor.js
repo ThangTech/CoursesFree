@@ -3,6 +3,7 @@ let currentChallengeIndex = 0;
 
 const challenges = [
   {
+    id: "css-lesson-1",
     title: "Màu sắc và Font chữ cơ bản",
     description: `
           <h3>Nhiệm vụ</h3>
@@ -55,6 +56,7 @@ const challenges = [
     ],
   },
   {
+    id: "css-lesson-2",
     title: "Box Model - Padding và Margin",
     description: `
           <h3>Nhiệm vụ</h3>
@@ -120,6 +122,7 @@ const challenges = [
     ],
   },
   {
+    id: "css-lesson-3",
     title: "Flexbox Layout",
     description: `
           <h3>Nhiệm vụ</h3>
@@ -298,6 +301,8 @@ function showResult(passed, results) {
     icon.textContent = "🎉";
     title.textContent = "Chính xác!";
     message.textContent = "Tuyệt vời! Bạn đã hoàn thành thử thách này.";
+    const lessonId = challenges[currentChallengeIndex].id;
+    saveLessonProgress(lessonId);
 
     if (currentChallengeIndex < challenges.length - 1) {
       nextBtn.style.display = "inline-block";

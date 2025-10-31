@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel - My's Course</title>
+  
+  <!-- CSS chung -->
+  <link rel="stylesheet" href="../CSS/style.css" />
+  <link rel="stylesheet" href="../CSS/darkmode.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="../Storage/Images/icons8-books-emoji-48.png" type="image/x-icon"/>
+  <link rel="stylesheet" href="../Admin/admin.css">
+</head>
+<body>
+
+  <div class="admin-container">
+    <div class="admin-header">
+      <h1>Admin Panel</h1>
+      <p>Quản lý người dùng & tiến độ học tập</p>
+    </div>
+
+    <div class="admin-content">
+      <a href="../../index.html" class="back-btn">
+        ← Quay lại Trang chủ
+      </a>
+
+      <!-- Thống kê tổng quan -->
+      <div class="section">
+        <h2>Thống kê</h2>
+        <div class="stats">
+          <div class="stat-card">
+            <div class="stat-number" id="total-users">0</div>
+            <div>Tổng người dùng</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="total-lessons">0</div>
+            <div>Tổng bài học hoàn thành</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="avg-progress">0%</div>
+            <div>Tiến độ trung bình</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Danh sách người dùng -->
+      <div class="section">
+        <h2>Danh sách người dùng</h2>
+        <table id="users-table">
+          <thead>
+            <tr>
+              <th>Tên</th>
+              <th>Username</th>
+              <th>Bài học hoàn thành</th>
+              <th>Hoạt động (7 ngày)</th>
+              <th>Ngày đăng ký</th>
+              <th>Hành động</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="../Admin/admin.js"></script>
+</body>
+</html>

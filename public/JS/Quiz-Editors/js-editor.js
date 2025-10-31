@@ -10,7 +10,7 @@ let currentChallengeIndex = 0;
 // Database các bài tập
 const challenges = [
   {
-    id: "basic1",
+    id: "js-lesson-1",
     title: "Hello World",
     description: `
       <h3>Nhiệm vụ</h3>
@@ -40,7 +40,7 @@ console.log(sayHello("An"));`,
   },
 
   {
-    id: "array1",
+    id: "js-lesson-2",
     title: "Tính tổng mảng",
     description: `
       <h3>Nhiệm vụ</h3>
@@ -73,7 +73,7 @@ console.log(sumArray([]));`,
   },
 
   {
-    id: "string1",
+    id: "js-lesson-3",
     title: "Đảo ngược chuỗi",
     description: `
       <h3>Nhiệm vụ</h3>
@@ -103,7 +103,7 @@ console.log(reverseString("world"));`,
   },
 
   {
-    id: "number1",
+    id: "js-lesson-4",
     title: "Số chẵn lẻ",
     description: `
       <h3>Nhiệm vụ</h3>
@@ -278,6 +278,8 @@ function runTests(code) {
         <div>✅ Hoàn thành! Tất cả test cases đã pass! (${passedCount}/${totalCount})</div>
         <div class="test-info">Tuyệt vời! Bạn đã giải quyết thử thách này.</div>
       `;
+      const lessonId = challenges[currentChallengeIndex].id;
+      saveLessonProgress(lessonId);
 
 
       if (currentChallengeIndex < challenges.length - 1) {

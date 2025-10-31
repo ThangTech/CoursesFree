@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-translate="profile_title">Hồ sơ học tập - My's Course</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/profile.css">
+  <link
+      rel="shortcut icon"
+      href="../../public/Storage/Images/icons8-books-emoji-48.png"
+      type="image/x-icon"
+/>
+</head>
+<body>
+  <div class="profile-container">
+    <div class="profile-header">
+      <img src="../Storage/Images/melon-avatar.jpg" alt="Avatar" class="avatar" id="user-avatar">
+      <div class="profile-info">
+        <h1 id="user-name">Thắng Nguyễn</h1>
+        <p class="username" id="user-username">@nguyenthang114</p>
+        <p class="bio" id="user-bio">Tôi là người mới bắt đầu học lập trình</p>
+      </div>
+    </div>
+    <div class="back-btn">
+       <a href="../../index.html">Trang chủ</a>
+    </div>
+    <div class="contribution-graph">
+      <div class="graph-title">
+        <span>373 hoạt động trong 12 tháng qua</span>
+        <div class="graph-legend">
+          <span class="legend-item"><div class="legend-color level-0"></div>Ít</span>
+          <span class="legend-item"><div class="legend-color level-4"></div>Nhiều</span>
+        </div>
+      </div>
+      <div class="graph-grid" id="contribution-grid"></div>
+    </div>
+    <div class="courses-grid" id="courses-container">
+      <!-- JS sẽ render ở đây -->
+    </div>
+
+  </div>
+  <script src="../../public/JS/save-progress.js"></script>
+  <script src="../../public/JS/profile.js"></script>
+</body>
+</html>
