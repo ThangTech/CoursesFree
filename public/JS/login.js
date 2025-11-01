@@ -56,7 +56,15 @@ document.getElementById("register-btn").addEventListener("click", () => {
   localStorage.setItem("users", JSON.stringify(users));
 
   document.getElementById("reg-error").textContent = "";
-  document.getElementById("reg-success").style.display = "block";
+  const regSuccessEl = document.getElementById("reg-success");
+
+  regSuccessEl.textContent = "Đăng ký thành công! Đang chuyển...";
+  regSuccessEl.style.display = "block";
+  regSuccessEl.style.opacity = "1";
+  regSuccessEl.style.transition = "opacity 0.2s ease";
+  
+  regSuccessEl.scrollIntoView({ behavior: "smooth", block: "center" });
+
   setTimeout(() => switchTab("login"), 1500);
 });
 
