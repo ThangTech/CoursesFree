@@ -15,9 +15,13 @@
 <body>
   <div class="profile-container">
     <div class="profile-header">
-      <img src="../Storage/Images/melon-avatar.jpg" alt="Avatar" class="avatar" id="user-avatar">
+      <div class="avatar-wrapper">
+        <img src="../Storage/Images/melon-avatar.jpg" alt="Avatar" class="avatar" id="user-avatar">
+        <button class="edit-avatar-btn" onclick="openEditModal()">✏️</button>
+      </div>
       <div class="profile-info">
         <h1 id="user-name">Thắng Nguyễn</h1>
+        <button class="edit-profile-btn" onclick="openEditModal()">Chỉnh sửa hồ sơ</button>
         <p class="username" id="user-username">@nguyenthang114</p>
         <p class="bio" id="user-bio">Tôi là người mới bắt đầu học lập trình</p>
       </div>
@@ -38,7 +42,29 @@
     <div class="courses-grid" id="courses-container">
       <!-- JS sẽ render ở đây -->
     </div>
+  </div>
 
+  <!-- Modal chỉnh sửa hồ sơ -->
+  <div id="edit-modal" class="modal">
+    <div class="modal-content">
+      <h2>Chỉnh sửa hồ sơ</h2>
+      
+      <label for="edit-name" style="display: block; margin-top: 10px; font-weight: 500;">Tên hiển thị:</label>
+      <input type="text" id="edit-name" placeholder="Nhập tên của bạn">
+      
+      <label for="edit-bio" style="display: block; margin-top: 10px; font-weight: 500;">Tiểu sử:</label>
+      <textarea id="edit-bio" placeholder="Viết vài dòng về bản thân..."></textarea>
+      
+      <label for="edit-avatar" style="display: block; margin-top: 10px; font-weight: 500;">Ảnh đại diện:</label>
+      <input type="file" id="edit-avatar" accept="image/*" onchange="previewAvatar(event)">
+      
+      <img id="avatar-preview" class="avatar-preview" style="display: none;">
+      
+      <div class="modal-buttons">
+        <button class="btn-save" onclick="saveProfile()">💾 Lưu thay đổi</button>
+        <button class="btn-cancel" onclick="closeModal()">❌ Hủy</button>
+      </div>
+    </div>
   </div>
   <script src="../../public/JS/save-progress.js"></script>
   <script src="../../public/JS/profile.js"></script>
