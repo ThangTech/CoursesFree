@@ -6,19 +6,19 @@
       "items": [
         {
           "name": "HTML",
-          "url": "https://www.w3schools.com/html/"
+          "url": "https://devdocs.io/html/"
         },
         {
           "name": "CSS",
-          "url": "https://www.w3schools.com/css/"
+          "url": "https://devdocs.io/css/"
         },
         {
           "name": "RWD",
-          "url": "https://www.w3schools.com/css/css_rwd_intro.asp"
+          "url": "https://devdocs.io/html/guides/responsive_images"
         },
         {
           "name": "Bootstrap",
-          "url": "https://getbootstrap.com/docs/5.3/getting-started/introduction/"
+          "url": "https://devdocs.io/bootstrap~5/"
         },
         {
           "name": "W3.CSS",
@@ -26,7 +26,7 @@
         },
         {
           "name": "Sass",
-          "url": "https://www.w3schools.com/sass/"
+          "url": "https://devdocs.io/sass/"
         },
         {
           "name": "Colors",
@@ -56,15 +56,15 @@
       "items": [
         {
           "name": "JavaScript",
-          "url": "https://www.w3schools.com/js/"
+          "url": "https://devdocs.io/javascript/"
         },
         {
           "name": "React",
-          "url": "https://react.dev/learn"
+          "url": "https://devdocs.io/react/"
         },
         {
           "name": "jQuery",
-          "url": "https://www.w3schools.com/jquery/"
+          "url": "https://devdocs.io/jquery/"
         },
         {
           "name": "Vue",
@@ -76,7 +76,7 @@
         },
         {
           "name": "AngularJS",
-          "url": "https://www.w3schools.com/angular/"
+          "url": "https://devdocs.io/angularjs~1.8/"
         },
         {
           "name": "JSON",
@@ -102,7 +102,7 @@
       "items": [
         {
           "name": "Python",
-          "url": "https://www.w3schools.com/python/"
+          "url": "https://devdocs.io/python~2.7/"
         },
         {
           "name": "SQL",
