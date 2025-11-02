@@ -20,7 +20,7 @@ if (!currentUser) {
   window.location.href = "./login.html";
 }
 
-// Hiển thị thông tin người dùng
+
 function displayUserInfo() {
   document.getElementById("user-name").textContent = currentUser.name;
   document.getElementById(
@@ -29,7 +29,7 @@ function displayUserInfo() {
   document.getElementById("user-bio").textContent =
     currentUser.bio || "Chưa có tiểu sử";
 
-  // Hiển thị avatar nếu có
+
   const avatarImg = document.getElementById("user-avatar");
   if (currentUser.avatar) {
     avatarImg.src = currentUser.avatar;
@@ -38,7 +38,7 @@ function displayUserInfo() {
 
 displayUserInfo();
 
-// Hiển thị biểu đồ hoạt động
+
 const contributions = currentUser.contributions || Array(365).fill(0);
 const total = contributions.reduce((a, b) => a + b, 0);
 document.querySelector(
@@ -53,7 +53,7 @@ for (let i = 0; i < 365; i++) {
   grid.appendChild(day);
 }
 
-// Hiển thị khóa học đã hoàn thành
+
 const coursesContainer = document.getElementById("courses-container");
 const completed = currentUser.completedLessons || [];
 
@@ -81,13 +81,13 @@ if (completed.length === 0) {
 
 // ========== CHỨC NĂNG CHỈNH SỬA HỒ SƠ ==========
 
-// Mở modal chỉnh sửa
+
 function openEditModal() {
   const modal = document.getElementById("edit-modal");
   document.getElementById("edit-name").value = currentUser.name;
   document.getElementById("edit-bio").value = currentUser.bio || "";
 
-  // Hiển thị avatar hiện tại nếu có
+
   const avatarPreview = document.getElementById("avatar-preview");
   if (currentUser.avatar) {
     avatarPreview.src = currentUser.avatar;
@@ -99,14 +99,14 @@ function openEditModal() {
   modal.style.display = "block";
 }
 
-// Đóng modal
+
 function closeModal() {
   const modal = document.getElementById("edit-modal");
   modal.style.display = "none";
-  document.getElementById("edit-avatar").value = ""; // Reset file input
+  document.getElementById("edit-avatar").value = ""; 
 }
 
-// Đóng modal khi click bên ngoài
+
 window.onclick = function (event) {
   const modal = document.getElementById("edit-modal");
   if (event.target == modal) {
@@ -114,7 +114,7 @@ window.onclick = function (event) {
   }
 };
 
-// Preview ảnh trước khi lưu
+
 function previewAvatar(event) {
   const file = event.target.files[0];
   if (file) {
@@ -135,40 +135,52 @@ function previewAvatar(event) {
   }
 }
 
-// Lưu thông tin hồ sơ
+
 function saveProfile() {
   const newName = document.getElementById("edit-name").value.trim();
   const newBio = document.getElementById("edit-bio").value.trim();
   const fileInput = document.getElementById("edit-avatar");
 
-  // Validate tên không được để trống
+
   if (!newName) {
     alert("Vui lòng nhập tên hiển thị!");
     return;
   }
 
-  // Cập nhật tên và bio
   currentUser.name = newName;
   currentUser.bio = newBio;
 
-  // Nếu có chọn ảnh mới
+
+  function updateBothStorages() {
+
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const userIndex = users.findIndex(
+      (u) => u.username === currentUser.username
+    );
+
+    if (userIndex !== -1) {
+
+      users[userIndex] = { ...users[userIndex], ...currentUser };
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+
+    closeModal();
+    alert("Đã lưu thay đổi thành công!");
+    location.reload();
+  }
+
   if (fileInput.files[0]) {
     const reader = new FileReader();
     reader.onload = function (e) {
-      currentUser.avatar = e.target.result; // Lưu ảnh dạng base64
-
-      // Cập nhật localStorage
-      localStorage.setItem("currentUser", JSON.stringify(currentUser));
-
-      // Đóng modal và reload trang
-      closeModal();
-      location.reload();
+      currentUser.avatar = e.target.result; 
+      updateBothStorages();
     };
     reader.readAsDataURL(fileInput.files[0]);
   } else {
-    // Không có ảnh mới, chỉ lưu tên và bio
-    localStorage.setItem("currentUser", JSON.stringify(currentUser));
-    closeModal();
-    location.reload();
+
+    updateBothStorages();
   }
 }
