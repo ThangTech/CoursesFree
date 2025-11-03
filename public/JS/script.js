@@ -363,21 +363,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (currentUser) {
   authContainer.innerHTML = `
-    <div style="
+    <style>
+      @media (max-width: 640px) {
+        .auth-container {
+          gap: 8px !important;
+          padding: 4px !important;
+        }
+        .user-greeting {
+          font-size: 0.8rem !important;
+        }
+        .logout-btn, .admin-link {
+          padding: 6px 10px !important;
+          font-size: 0.75rem !important;
+        }
+      }
+      @media (max-width: 480px) {
+        .auth-container {
+          gap: 6px !important;
+          flex-wrap: nowrap !important;
+        }
+        .user-greeting {
+          font-size: 0.7rem !important;
+        }
+        .logout-btn, .admin-link {
+          padding: 5px 8px !important;
+          font-size: 0.7rem !important;
+        }
+      }
+    </style>
+    <div class="auth-container" style="
       display: flex;
       align-items: center;
       gap: 12px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       justify-content: flex-end;
+      padding: 8px;
     ">
       <!-- Tên người dùng -->
-      <div style="
+      <div class="user-greeting" style="
         display: flex;
         align-items: center;
         gap: 8px;
         font-size: 0.9rem;
         color: #374151;
         font-weight: 500;
+        white-space: nowrap;
       ">
         <span>
           Xin chào, 
@@ -386,6 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
       <!-- Nút Đăng xuất -->
       <button id="logout-btn" 
+              class="logout-btn"
               style="
                 background: #ef4444;
                 color: white;
@@ -397,6 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 cursor: pointer;
                 transition: all 0.2s;
                 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                white-space: nowrap;
               "
               onmouseover="this.style.background='#dc2626'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 8px rgba(239,68,68,0.3)'"
               onmouseout="this.style.background='#ef4444'; this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.1)'">
@@ -406,6 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <!-- Nút Admin (chỉ hiện khi là admin) -->
       ${currentUser.username === 'admin' ? `
         <a href="../../public/Admin/admin.html" 
+           class="admin-link"
            style="
              display: inline-block;
              padding: 8px 16px;
@@ -417,6 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
              border-radius: 8px;
              transition: all 0.2s;
              box-shadow: 0 2px 4px rgba(124,58,237,0.3);
+             white-space: nowrap;
            "
            onmouseover="this.style.background='#6d28d9'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 8px rgba(124,58,237,0.4)'"
            onmouseout="this.style.background='#7c3aed'; this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(124,58,237,0.3)'">
