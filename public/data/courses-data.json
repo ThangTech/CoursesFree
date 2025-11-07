@@ -13,16 +13,8 @@
           "url": "https://devdocs.io/css/"
         },
         {
-          "name": "RWD",
-          "url": "https://devdocs.io/html/guides/responsive_images"
-        },
-        {
           "name": "Bootstrap",
           "url": "https://devdocs.io/bootstrap~5/"
-        },
-        {
-          "name": "W3.CSS",
-          "url": "https://www.w3schools.com/w3css/"
         },
         {
           "name": "Sass",
@@ -85,14 +77,6 @@
         {
           "name": "AJAX",
           "url": "https://www.w3schools.com/js/js_ajax_intro.asp"
-        },
-        {
-          "name": "AppML",
-          "url": "https://www.w3schools.com/appml/"
-        },
-        {
-          "name": "W3.JS",
-          "url": "https://www.w3schools.com/w3js/"
         }
       ]
     },
