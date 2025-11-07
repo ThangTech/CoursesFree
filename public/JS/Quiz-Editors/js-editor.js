@@ -1,13 +1,6 @@
-require.config({
-  paths: {
-    vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs",
-  },
-});
-
 let editor;
 let currentChallengeIndex = 0;
 
-// Database các bài tập
 const challenges = [
   {
     id: "js-lesson-1",
@@ -38,7 +31,6 @@ console.log(sayHello("An"));`,
       { input: "Hùng", expected: "Xin chào, Hùng!" },
     ],
   },
-
   {
     id: "js-lesson-2",
     title: "Tính tổng mảng",
@@ -71,7 +63,6 @@ console.log(sumArray([]));`,
       { input: [], expected: 0 },
     ],
   },
-
   {
     id: "js-lesson-3",
     title: "Đảo ngược chuỗi",
@@ -101,7 +92,6 @@ console.log(reverseString("world"));`,
       { input: "JavaScript", expected: "tpircSavaJ" },
     ],
   },
-
   {
     id: "js-lesson-4",
     title: "Số chẵn lẻ",
@@ -151,34 +141,43 @@ function loadChallenge(index) {
   document.getElementById("challenge").innerHTML = challenge.description;
 
   if (editor) {
-    editor.setValue(challenge.starterCode);
+    editor.setValue(challenge.starterCode, -1);
   }
 
   // Clear output
   document.getElementById("output").innerHTML = "";
 }
 
-require(["vs/editor/editor.main"], function () {
-  editor = monaco.editor.create(document.getElementById("editor"), {
-    value: challenges[0].starterCode,
-    language: "javascript",
-    theme: "vs-dark",
-    fontSize: 16,
-    minimap: { enabled: false },
-    scrollBeyondLastLine: false,
-    automaticLayout: true,
+// Khởi tạo Ace Editor
+function initEditor() {
+  editor = ace.edit("editor");
+  editor.setTheme("ace/theme/monokai");
+  editor.session.setMode("ace/mode/javascript");
+  editor.setOptions({
+    fontSize: "16px",
+    enableBasicAutocompletion: true,
+    enableLiveAutocompletion: true,
+    enableSnippets: true,
+    showPrintMargin: false,
+    wrap: true,
     tabSize: 2,
   });
 
   loadChallenge(0);
-});
+}
+
+// Đợi Ace Editor load xong
+if (typeof ace !== "undefined") {
+  initEditor();
+} else {
+  window.addEventListener("load", initEditor);
+}
 
 function runCode() {
   const code = editor.getValue();
   const outputDiv = document.getElementById("output");
   outputDiv.innerHTML = "";
 
-  // Capture console output
   const logs = [];
   const originalLog = console.log;
   const originalError = console.error;
@@ -200,10 +199,8 @@ function runCode() {
   };
 
   try {
-    
     eval(code);
 
-    
     if (logs.length > 0) {
       logs.forEach((log) => {
         const div = document.createElement("div");
@@ -233,7 +230,6 @@ function runTests(code) {
   const challenge = challenges[currentChallengeIndex];
 
   try {
-    
     eval(code);
 
     const funcName = challenge.starterCode.match(/function\s+(\w+)/)?.[1];
@@ -275,12 +271,13 @@ function runTests(code) {
 
     if (allPassed) {
       testDiv.innerHTML = `
-        <div>✅ Hoàn thành! Tất cả test cases đã pass! (${passedCount}/${totalCount})</div>
+        <div> Hoàn thành! Tất cả test cases đã pass! (${passedCount}/${totalCount})</div>
         <div class="test-info">Tuyệt vời! Bạn đã giải quyết thử thách này.</div>
       `;
       const lessonId = challenges[currentChallengeIndex].id;
-      saveLessonProgress(lessonId);
-
+      if (typeof saveLessonProgress === "function") {
+        saveLessonProgress(lessonId);
+      }
 
       if (currentChallengeIndex < challenges.length - 1) {
         const nextBtn = document.createElement("button");
@@ -296,7 +293,7 @@ function runTests(code) {
         completeMsg.style.marginTop = "10px";
         completeMsg.style.color = "#4ec9b0";
         completeMsg.innerHTML =
-          "🎉 Chúc mừng! Bạn đã hoàn thành tất cả bài tập!";
+          " Chúc mừng! Bạn đã hoàn thành tất cả bài tập!";
         testDiv.appendChild(completeMsg);
       }
     } else {
@@ -306,11 +303,11 @@ function runTests(code) {
           ${testResults
             .map((r) => {
               if (r.passed) {
-                return `<span style="color: #4ec9b0;">✅ Test ${r.index}: Pass</span>`;
+                return `<span style="color: #4ec9b0;"> Test ${r.index}: Pass</span>`;
               } else if (r.error) {
-                return `<span style="color: #f48771;">❌ Test ${r.index}: Error - ${r.error}</span>`;
+                return `<span style="color: #f48771;"> Test ${r.index}: Error - ${r.error}</span>`;
               } else {
-                return `<span style="color: #f48771;">❌ Test ${
+                return `<span style="color: #f48771;"> Test ${
                   r.index
                 }: Fail</span><br>
                         &nbsp;&nbsp;&nbsp;Expected: ${JSON.stringify(
@@ -326,7 +323,7 @@ function runTests(code) {
 
     outputDiv.appendChild(testDiv);
   } catch (e) {
-    
+
   }
 }
 
@@ -341,7 +338,6 @@ function formatOutput(value) {
   return String(value);
 }
 
-// Keyboard shortcut: Ctrl/Cmd + Enter to run
 document.addEventListener("keydown", (e) => {
   if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
     e.preventDefault();

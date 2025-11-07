@@ -1,7 +1,7 @@
 // Dữ liệu dịch
 const translations = {
   vi: {
-    site_title: "My's Course",
+    site_title: "My Course",
     tutorial: "Hướng dẫn",
     references: "Tài liệu",
     exercises: "Luyện tập",
@@ -162,7 +162,7 @@ const translations = {
     ref_item_css_selectors: "Bộ chọn CSS",
   },
   en: {
-    site_title: "My's Course",
+    site_title: "My Course",
     tutorial: "Tutorial",
     references: "References",
     exercises: "Exercises",
@@ -323,7 +323,7 @@ const translations = {
     ref_item_css_selectors: "CSS Selectors",
   },
   zh: {
-    site_title: "My's Course",
+    site_title: "My Course",
     tutorial: "教程",
     references: "参考资料",
     exercises: "练习",

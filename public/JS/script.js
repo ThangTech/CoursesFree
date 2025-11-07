@@ -363,103 +363,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (currentUser) {
   authContainer.innerHTML = `
-    <style>
-      @media (max-width: 640px) {
-        .auth-container {
-          gap: 8px !important;
-          padding: 4px !important;
-        }
-        .user-greeting {
-          font-size: 0.8rem !important;
-        }
-        .logout-btn, .admin-link {
-          padding: 6px 10px !important;
-          font-size: 0.75rem !important;
-        }
-      }
-      @media (max-width: 480px) {
-        .auth-container {
-          gap: 6px !important;
-          flex-wrap: nowrap !important;
-        }
-        .user-greeting {
-          font-size: 0.7rem !important;
-        }
-        .logout-btn, .admin-link {
-          padding: 5px 8px !important;
-          font-size: 0.7rem !important;
-        }
-      }
-    </style>
-    <div class="auth-container" style="
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: nowrap;
-      justify-content: flex-end;
-      padding: 8px;
-    ">
+    <div class="auth-container">
       <!-- Tên người dùng -->
-      <div class="user-greeting" style="
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 0.9rem;
-        color: #374151;
-        font-weight: 500;
-        white-space: nowrap;
-      ">
+      <div class="user-greeting">
         <span>
           Xin chào, 
-          <strong style="font-weight: 700; color: #10b981;">${currentUser.name}</strong>
+          <strong>${currentUser.name}</strong>
         </span>
       </div>
       <!-- Nút Đăng xuất -->
-      <button id="logout-btn" 
-              class="logout-btn"
-              style="
-                background: #ef4444;
-                color: white;
-                font-weight: 600;
-                font-size: 0.85rem;
-                padding: 8px 14px;
-                border: none;
-                border-radius: 8px;
-                cursor: pointer;
-                transition: all 0.2s;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                white-space: nowrap;
-              "
-              onmouseover="this.style.background='#dc2626'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 8px rgba(239,68,68,0.3)'"
-              onmouseout="this.style.background='#ef4444'; this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.1)'">
-        Đăng xuất
-      </button>
-
+      <button id="logout-btn" class="logout-btn">Đăng xuất</button>
       <!-- Nút Admin (chỉ hiện khi là admin) -->
       ${currentUser.username === 'admin' ? `
-        <a href="../../public/Admin/admin.html" 
-           class="admin-link"
-           style="
-             display: inline-block;
-             padding: 8px 16px;
-             background: #7c3aed;
-             color: white;
-             font-weight: 600;
-             font-size: 0.85rem;
-             text-decoration: none;
-             border-radius: 8px;
-             transition: all 0.2s;
-             box-shadow: 0 2px 4px rgba(124,58,237,0.3);
-             white-space: nowrap;
-           "
-           onmouseover="this.style.background='#6d28d9'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 8px rgba(124,58,237,0.4)'"
-           onmouseout="this.style.background='#7c3aed'; this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(124,58,237,0.3)'">
-          Admin
-        </a>
+        <a href="../../public/Admin/admin.html" class="admin-link">Admin</a>
       ` : ''}
     </div>
   `;
-
   const logoutBtn = document.getElementById('logout-btn');
   if (logoutBtn) {
     logoutBtn.addEventListener('click', () => {

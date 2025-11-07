@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
   let isAIInitialized = false;
 
   const MY_COURSES_CONTEXT = `
-Bạn là AI Assistant của My's Courses - nền tảng học lập trình trực tuyến.
+Bạn là AI Assistant của My Courses - nền tảng học lập trình trực tuyến.
 
-THÔNG TIN VỀ MY'S COURSES:
-- Tên: My's Courses
+THÔNG TIN VỀ MY COURSES:
+- Tên: My Courses
 - Mục tiêu: Dạy lập trình web từ cơ bản đến nâng cao
 - Ngôn ngữ: HTML, CSS, JavaScript, Python, SQL
 - Tính năng: Hướng dẫn, Tài liệu, Luyện tập, Video, Bài tập, Quizzes
@@ -37,14 +37,14 @@ TÍNH NĂNG NỔI BẬT:
 - Hỗ trợ đa ngôn ngữ
 
 KHI TRẢ LỜI, HÃY:
-1. Giới thiệu My's Courses nếu người dùng hỏi
+1. Giới thiệu My Courses nếu người dùng hỏi
 2. Tư vấn khóa học phù hợp với nhu cầu
 3. Hướng dẫn sử dụng các tính năng trên website
 4. Giải đáp thắc mắc về lập trình
 5. Đề xuất lộ trình học tập
 6. Luôn thân thiện, nhiệt tình và hữu ích
 
-HÃY TRẢ LỜI NHƯ MỘT TRỢ LÝ CỦA MY'S COURSES!
+HÃY TRẢ LỜI NHƯ MỘT TRỢ LÝ CỦA MY COURSES!
 `;
 
   async function initializeAI() {
@@ -64,7 +64,7 @@ HÃY TRẢ LỜI NHƯ MỘT TRỢ LÝ CỦA MY'S COURSES!
       });
       
       isAIInitialized = true;
-      console.log("AI initialized successfully for My's Courses");
+      console.log("AI initialized successfully for My Courses");
       
     } catch (error) {
       console.error("Failed to initialize AI:", error);
@@ -110,14 +110,14 @@ HÃY TRẢ LỜI NHƯ MỘT TRỢ LÝ CỦA MY'S COURSES!
 
   function showSuggestedQuestions() {
     const suggestions = [
-      "My's Courses là gì?",
+      "My Courses là gì?",
       "Tôi nên bắt đầu học gì?",
       "Có những khóa học nào?",
       "Làm sao để thực hành code?",
       "Có video hướng dẫn không?"
     ];
 
-    addMessage("Tôi là AI Assistant của My's Courses. Tôi có thể giúp gì cho việc học lập trình của bạn?", "bot-message");
+    addMessage("Tôi là AI Assistant của My Courses. Tôi có thể giúp gì cho việc học lập trình của bạn?", "bot-message");
     
     const suggestionsDiv = document.createElement("div");
     suggestionsDiv.className = "suggestions-container";
@@ -151,7 +151,7 @@ HÃY TRẢ LỜI NHƯ MỘT TRỢ LÝ CỦA MY'S COURSES!
 
 Người dùng hỏi: "${userMessage}"
 
-Hãy trả lời như một trợ lý nhiệt tình của My's Courses:`;
+Hãy trả lời như một trợ lý nhiệt tình của My Courses:`;
 
       const result = await model.generateContent(prompt);
       const response = await result.response;

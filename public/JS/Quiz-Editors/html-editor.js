@@ -164,42 +164,39 @@ function loadChallenge(index) {
   document.getElementById("challenge").innerHTML = challenge.description;
 
   if (editor) {
-    editor.setValue(challenge.starterCode);
+    editor.setValue(challenge.starterCode, -1);
     updatePreview();
   }
 }
 
-require.config({
-  paths: {
-    vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs",
-  },
-});
-
-require(["vs/editor/editor.main", "vs/language/html/monaco.contribution"], () => {
-  monaco.languages.html.htmlDefaults.setOptions({
-    autoClosingTags: true,
-    suggest: { html5: true },
+// Khởi tạo Ace Editor
+function initEditor() {
+  editor = ace.edit("editor");
+  editor.setTheme("ace/theme/monokai");
+  editor.session.setMode("ace/mode/html");
+  editor.setOptions({
+    fontSize: "16px",
+    enableBasicAutocompletion: true,
+    enableLiveAutocompletion: true,
+    enableSnippets: true,
+    showPrintMargin: false,
+    wrap: true,
   });
 
-  editor = monaco.editor.create(document.getElementById("editor"), {
-    value: "<div>\n",
-    language: "html",
-    theme: "vs-dark",
-    fontSize: 16,
-    minimap: { enabled: false },
-    automaticLayout: true,
-    autoClosingBrackets: "always",
-    autoClosingQuotes: "always",
-    autoClosingOvertype: "always",
-    autoIndent: "advanced",
-  });
-
-  editor.onDidChangeModelContent(() => {
+  // Lắng nghe thay đổi
+  editor.session.on("change", function () {
     updatePreview();
   });
 
   loadChallenge(0);
-});
+}
+
+// Đợi Ace Editor load xong
+if (typeof ace !== "undefined") {
+  initEditor();
+} else {
+  window.addEventListener("load", initEditor);
+}
 
 function updatePreview() {
   const code = editor.getValue();
@@ -240,8 +237,10 @@ function showResult(passed, results) {
     title.textContent = "Chính xác!";
     message.textContent = "Tuyệt vời! Bạn đã hoàn thành thử thách này.";
     const lessonId = challenges[currentChallengeIndex].id;
-    saveLessonProgress(lessonId);
-    
+    if (typeof saveLessonProgress === "function") {
+      saveLessonProgress(lessonId);
+    }
+
     if (currentChallengeIndex < challenges.length - 1) {
       nextBtn.style.display = "inline-block";
     } else {
@@ -278,10 +277,8 @@ function nextChallenge() {
   loadChallenge(currentChallengeIndex + 1);
 }
 
-
 setInterval(() => {
   if (editor) {
     updatePreview();
   }
 }, 1000);
-

@@ -1,39 +1,35 @@
-require.config({
-  paths: {
-    vs: "https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs",
-  },
-});
+// editorBased-js.js
+const DEFAULT_JS = `// Viết JavaScript code của bạn ở đây\n// Console.log sẽ hiển thị ở bên phải\n\nconsole.log("Xin chào từ JS Editor!");\n\n// Ví dụ: Tạo các phần tử HTML\nconst heading = document.createElement('h1');\nheading.textContent = 'Hello World!';\nheading.style.color = '#4CAF50';\ndocument.body.appendChild(heading);\n\nconst paragraph = document.createElement('p');\nparagraph.textContent = 'Đây là một đoạn văn được tạo bằng JavaScript.';\ndocument.body.appendChild(paragraph);\n\n// Ví dụ: Tạo button\nconst button = document.createElement('button');\nbutton.textContent = 'Click me!';\nbutton.style.padding = '10px 20px';\nbutton.style.margin = '10px 0';\nbutton.style.cursor = 'pointer';\nbutton.onclick = function() {\n  alert('Button được click!');\n};\ndocument.body.appendChild(button);`;
 
 let editor;
-let executionTimeout;
+let updateTimeout;
 
-require(["vs/editor/editor.main"], function () {
-  // Tạo Monaco Editor
-  editor = monaco.editor.create(document.getElementById("editor"), {
-    value: `// Viết JavaScript code của bạn ở đây\n// Console.log sẽ hiển thị ở bên phải\n\nconsole.log("Xin chào từ JS Editor!");\n\n// Ví dụ: Tạo các phần tử HTML\nconst heading = document.createElement('h1');\nheading.textContent = 'Hello World!';\nheading.style.color = '#4CAF50';\ndocument.body.appendChild(heading);\n\nconst paragraph = document.createElement('p');\nparagraph.textContent = 'Đây là một đoạn văn được tạo bằng JavaScript.';\ndocument.body.appendChild(paragraph);\n\n// Ví dụ: Tạo button\nconst button = document.createElement('button');\nbutton.textContent = 'Click me!';\nbutton.style.padding = '10px 20px';\nbutton.style.margin = '10px 0';\nbutton.style.cursor = 'pointer';\nbutton.onclick = function() {\n  alert('Button được click!');\n};\ndocument.body.appendChild(button);`,
-    language: "javascript",
-    theme: "vs-dark",
-    automaticLayout: true,
-    fontSize: 14,
-    minimap: { enabled: false },
-    scrollBeyondLastLine: false,
-    wordWrap: "on",
+function initEditor() {
+  const editorContainer = document.getElementById("editor");
+  const previewFrame = document.getElementById("preview");
+
+  // Lấy nội dung đã lưu hoặc dùng mặc định
+  const savedContent = localStorage.getItem("editorBasedContentJS");
+  const initialContent = savedContent || DEFAULT_JS;
+
+  // Tạo Ace Editor
+  editor = ace.edit(editorContainer);
+  editor.setTheme("ace/theme/monokai");
+  editor.session.setMode("ace/mode/javascript");
+  editor.setOptions({
+    fontSize: "14px",
+    enableBasicAutocompletion: true,
+    enableLiveAutocompletion: true,
+    enableSnippets: true,
+    showPrintMargin: false,
+    wrap: true,
   });
 
-  // Lắng nghe sự thay đổi trong editor
-  editor.onDidChangeModelContent(() => {
-    clearTimeout(executionTimeout);
-    executionTimeout = setTimeout(updatePreview, 500);
-  });
+  editor.setValue(initialContent, -1);
 
-  updatePreview();
-});
-
-function updatePreview() {
-  const code = editor.getValue();
-  const preview = document.getElementById("preview");
-
-  const htmlContent = `
+  function updatePreview() {
+    const code = editor.getValue();
+    const htmlContent = `
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,29 +56,24 @@ function updatePreview() {
   <div class="output" id="output"></div>
   <script>
     const output = document.getElementById('output');
-    
-    // Override console để hiển thị kết quả
     console.log = function(...args) {
       const div = document.createElement('div');
       div.className = 'log';
       div.textContent = args.map(a => typeof a === 'object' ? JSON.stringify(a, null, 2) : String(a)).join(' ');
       output.appendChild(div);
     };
-    
     console.error = function(...args) {
       const div = document.createElement('div');
       div.className = 'error';
       div.textContent = '✖ ' + args.join(' ');
       output.appendChild(div);
     };
-    
     console.warn = function(...args) {
       const div = document.createElement('div');
       div.className = 'warn';
       div.textContent = '⚠ ' + args.join(' ');
       output.appendChild(div);
     };
-    
     try {
       ${code}
     } catch (error) {
@@ -91,13 +82,73 @@ function updatePreview() {
   </script>
 </body>
 </html>
-  `;
+    `;
+    previewFrame.srcdoc = htmlContent;
+  }
 
-  preview.srcdoc = htmlContent;
+  // Lắng nghe sự thay đổi nội dung
+  editor.session.on("change", function () {
+    clearTimeout(updateTimeout);
+    updateTimeout = setTimeout(function () {
+      updatePreview();
+      try {
+        localStorage.setItem("editorBasedContentJS", editor.getValue());
+      } catch (err) {
+        console.log("Không thể lưu vào localStorage");
+      }
+    }, 300);
+  });
+
+  // Phím tắt Ctrl/Cmd + S
+  window.addEventListener("keydown", function (e) {
+    const isMac = navigator.platform.toUpperCase().includes("MAC");
+    const modKey = isMac ? e.metaKey : e.ctrlKey;
+    if (modKey && e.key.toLowerCase() === "s") {
+      e.preventDefault();
+      try {
+        localStorage.setItem("editorBasedContentJS", editor.getValue());
+        const originalShadow = previewFrame.style.boxShadow;
+        previewFrame.style.boxShadow = "0 0 8px rgba(0,200,0,0.7)";
+        setTimeout(function () {
+          previewFrame.style.boxShadow = originalShadow;
+        }, 300);
+        updatePreview();
+      } catch (err) {
+        console.log("Không thể lưu");
+      }
+    }
+  });
+
+  // Khởi chạy preview lần đầu
+  updatePreview();
+
+  window.editorBased = {
+    editor,
+    updatePreview,
+    save: function () {
+      try {
+        localStorage.setItem("editorBasedContentJS", editor.getValue());
+        return true;
+      } catch (e) {
+        return false;
+      }
+    },
+    load: function () {
+      const code = localStorage.getItem("editorBasedContentJS");
+      if (code) {
+        editor.setValue(code, -1);
+      }
+    },
+    clear: function () {
+      localStorage.removeItem("editorBasedContentJS");
+      editor.setValue(DEFAULT_JS, -1);
+    },
+  };
 }
 
-window.addEventListener("error", function (e) {
-  if (e.message.includes("monaco") || e.message.includes("vs/editor")) {
-    console.error("Lỗi khi tải Monaco Editor:", e.message);
-  }
-});
+// Đợi Ace Editor load
+if (typeof ace !== "undefined") {
+  initEditor();
+} else {
+  window.addEventListener("load", initEditor);
+}
