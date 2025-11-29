@@ -14,9 +14,11 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
     ></script>
+    <script src="../JS/config.js"></script>
     <script type="text/javascript">
       (function () {
-        emailjs.init("Rc4kZ8c8pIjFSmBpy");
+        // Sử dụng config thay vì hardcode
+        emailjs.init(AppConfig.api.emailjs.publicKey);
       })();
     </script>
   </head>
@@ -157,8 +159,8 @@
             };
 
             await emailjs.send(
-              "service_d9c9m0s", 
-              "template_ln681q9", 
+              AppConfig.api.emailjs.serviceId,
+              AppConfig.api.emailjs.templateId,
               templateParams
             );
 

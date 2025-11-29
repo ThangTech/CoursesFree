@@ -1,0 +1,48 @@
+# ===== GIT IGNORE =====
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Environment variables và config
+.env
+.env.local
+.env.production
+public/JS/config.js
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Build outputs
+dist/
+build/
+.cache/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Backup files
+*.bak
+*.backup
+
+# Testing
+coverage/
+.nyc_output/
+

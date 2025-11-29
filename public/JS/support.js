@@ -2,7 +2,6 @@ function toggleFAQ(question) {
   const answer = question.nextElementSibling;
   const icon = question.querySelector("span:last-child");
 
-  // Đóng tất cả FAQ khác
   document.querySelectorAll(".faq-answer").forEach((item) => {
     if (item !== answer) {
       item.classList.remove("active");

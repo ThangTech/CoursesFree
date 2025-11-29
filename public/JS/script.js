@@ -1,4 +1,3 @@
-// ===== MOBILE MENU =====
 const menuBtnMobile = document.getElementById("menu-btn-Mobile");
 const mobileMenuNav = document.getElementById("mobile-menu-nav");
 const mobileNavClose = document.getElementById("mobile-nav-close");
@@ -20,7 +19,6 @@ function closeMobileMenu() {
   isMobileMenuOpen = false;
 }
 
-// ===== NESTED NAVIGATION (HƯỚNG DẪN) =====
 const tutorialBtn = document.getElementById("tutorial-btn");
 const nestedNav = document.getElementById("nested-navigation-container-id");
 const nestedCloseBtn = document.getElementById("nested-nav-close-btn");
@@ -30,7 +28,6 @@ if (tutorialBtn && nestedNav) {
     e.preventDefault();
     nestedNav.classList.toggle("nested-navigation-hidden");
 
-    // Dịch lại khi mở menu
     if (
       !nestedNav.classList.contains("nested-navigation-hidden") &&
       typeof translatePage === "function"
@@ -44,7 +41,6 @@ if (tutorialBtn && nestedNav) {
     nestedNav.classList.add("nested-navigation-hidden");
   });
 
-  // Đóng nested nav khi click ngoài
   document.addEventListener("click", (e) => {
     if (!nestedNav.contains(e.target) && !tutorialBtn.contains(e.target)) {
       nestedNav.classList.add("nested-navigation-hidden");
@@ -52,7 +48,6 @@ if (tutorialBtn && nestedNav) {
   });
 }
 
-// ===== CODE EDITORS (HIỂN THỊ CODE) =====
 const codeExamples = {
   vi: {
     html: `<!DOCTYPE html>
@@ -215,7 +210,6 @@ SELECT * FROM Students;`,
   },
 };
 
-// Hàm render code vào editor
 function renderCodeExample(elementId, code) {
   const element = document.getElementById(elementId);
   if (element) {
@@ -223,7 +217,6 @@ function renderCodeExample(elementId, code) {
   }
 }
 
-// Hàm cập nhật code examples theo ngôn ngữ
 function updateCodeExamples(lang) {
   const examples = codeExamples[lang] || codeExamples.vi;
 
@@ -234,16 +227,13 @@ function updateCodeExamples(lang) {
   renderCodeExample("sql-code", examples.sql);
 }
 
-// Render code ban đầu
 const initialLang = window.currentLang || "vi";
 updateCodeExamples(initialLang);
 
-// Lắng nghe sự thay đổi ngôn ngữ để cập nhật code
 window.addEventListener("languageChange", (e) => {
   updateCodeExamples(e.detail.lang);
 });
 
-// ===== SLIDESHOW (HOW TO SECTION) =====
 document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(
     ".howtosection-item:not(.background)"
@@ -275,7 +265,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Auto slide mỗi 5 giây
   setInterval(() => {
     currentSlide++;
     showSlide(currentSlide);
@@ -284,7 +273,6 @@ document.addEventListener("DOMContentLoaded", () => {
   showSlide(0);
 });
 
-// ===== LIKE POPUP =====
 const likeBtn = document.getElementById("likeBtn");
 const likePopup = document.getElementById("likePopup");
 const closePopup = document.getElementById("closePopup");
@@ -298,7 +286,6 @@ if (likeBtn && likePopup && closePopup) {
     likePopup.style.display = "none";
   });
 
-  // Đóng popup khi click ngoài
   window.addEventListener("click", (e) => {
     if (e.target === likePopup) {
       likePopup.style.display = "none";
@@ -306,7 +293,6 @@ if (likeBtn && likePopup && closePopup) {
   });
 }
 
-// ===== DARK MODE =====
 const darkModeBtn = document.getElementById("toggleDarkMode");
 
 if (darkModeBtn) {
@@ -329,7 +315,6 @@ document.addEventListener("click", function (e) {
   }
 });
 
-// ===== CHATBOT LAUNCHER POPUP =====
 document.addEventListener("DOMContentLoaded", function () {
   const chatbotLauncher = document.getElementById("chatbot-launcher");
   let chatbotWindow = null;
@@ -356,7 +341,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-//Login
 document.addEventListener('DOMContentLoaded', () => {
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
   const authContainer = document.getElementById('auth-container');
@@ -364,16 +348,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (currentUser) {
   authContainer.innerHTML = `
     <div class="auth-container">
-      <!-- Tên người dùng -->
       <div class="user-greeting">
         <span>
           Xin chào, 
           <strong>${currentUser.name}</strong>
         </span>
       </div>
-      <!-- Nút Đăng xuất -->
       <button id="logout-btn" class="logout-btn">Đăng xuất</button>
-      <!-- Nút Admin (chỉ hiện khi là admin) -->
       ${currentUser.username === 'admin' ? `
         <a href="../../public/Admin/admin.html" class="admin-link">Admin</a>
       ` : ''}

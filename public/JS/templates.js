@@ -5,7 +5,6 @@ async function fetchTemplates() {
   if (loading) loading.style.display = "block";
 
   try {
-    // Tìm kiếm repositories về HTML templates phổ biến
     const response = await fetch(
       `${GITHUB_API}?q=html+template+stars:>100&sort=stars&order=desc&per_page=12`
     );
@@ -104,12 +103,10 @@ function renderTemplates(templates) {
     .join("");
 }
 
-// Khởi tạo khi DOM đã sẵn sàng
 document.addEventListener("DOMContentLoaded", async () => {
   const templates = await fetchTemplates();
   renderTemplates(templates);
 
-  // Xử lý tìm kiếm
   const searchInput = document.getElementById("searchInput");
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
@@ -126,7 +123,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  // Xử lý filter theo ngôn ngữ
   const languageFilter = document.getElementById("languageFilter");
   if (languageFilter) {
     languageFilter.addEventListener("change", (e) => {

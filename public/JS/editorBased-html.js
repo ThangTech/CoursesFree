@@ -1,4 +1,3 @@
-// Default HTML template
 const DEFAULT_HTML = `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +5,6 @@ const DEFAULT_HTML = `<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Live Preview</title>
     <style>
-      /* Add your CSS here */
       body {
         font-family: Arial, sans-serif;
         padding: 20px;
@@ -25,16 +23,13 @@ const DEFAULT_HTML = `<!DOCTYPE html>
 let editor;
 let updateTimeout;
 
-// Khởi tạo Ace Editor
 function initEditor() {
   const editorContainer = document.getElementById("editor");
   const previewFrame = document.getElementById("preview");
 
-  // Lấy nội dung đã lưu hoặc dùng mặc định
   const savedContent = localStorage.getItem("editorBasedContent");
   const initialContent = savedContent || DEFAULT_HTML;
 
-  // Tạo Ace Editor
   editor = ace.edit(editorContainer);
   editor.setTheme("ace/theme/monokai");
   editor.session.setMode("ace/mode/html");
@@ -54,15 +49,12 @@ function initEditor() {
     previewFrame.srcdoc = htmlCode;
   }
 
-  // Listen for content changes
   editor.session.on("change", function () {
-    // Clear previous timeout
     clearTimeout(updateTimeout);
 
     updateTimeout = setTimeout(function () {
       updatePreview();
 
-      // Save to localStorage
       try {
         localStorage.setItem("editorBasedContent", editor.getValue());
       } catch (err) {
@@ -71,7 +63,6 @@ function initEditor() {
     }, 300);
   });
 
-  // Ctrl/Cmd + S để save
   window.addEventListener("keydown", function (e) {
     const isMac = navigator.platform.toUpperCase().includes("MAC");
     const modKey = isMac ? e.metaKey : e.ctrlKey;
@@ -92,7 +83,6 @@ function initEditor() {
     }
   });
 
-  // Khởi chạy preview lần đầu
   updatePreview();
 
   window.editorBased = {
@@ -119,7 +109,6 @@ function initEditor() {
   };
 }
 
-// Đợi Ace Editor load xong
 if (typeof ace !== "undefined") {
   initEditor();
 } else {

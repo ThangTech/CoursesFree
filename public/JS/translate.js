@@ -1,4 +1,3 @@
-// Dữ liệu dịch
 const translations = {
   vi: {
     site_title: "My Course",
@@ -68,12 +67,10 @@ const translations = {
     lang_zh: "🇨🇳 简体中文",
     github_link: "github.com/ThangTech",
 
-    // CODE EXAMPLES
     html_code_title: "Hướng dẫn HTML",
     html_code_h1: "Đây là thẻ H1",
     html_code_p: "Đây là thẻ paragraph",
 
-    // KEY CHO RENDER-DATA.JS - TUTORIALS
     tutorial_title: "Hướng dẫn",
     category_html: "HTML",
     category_css: "CSS",
@@ -85,7 +82,6 @@ const translations = {
     tutorial_css_syntax: "Học Cú pháp CSS",
     tutorial_css_selectors: "Học Bộ chọn CSS",
 
-    // KEY CHO COURSES CARD
     course_html: "HTML",
     course_desc_html: "Ngôn ngữ đánh dấu để tạo cấu trúc trang web",
     learn_course_html: "Học HTML",
@@ -118,7 +114,6 @@ const translations = {
     course_desc_bootstrap: "Framework CSS cho thiết kế responsive",
     learn_course_bootstrap: "Học Bootstrap",
 
-    // THÊM MỚI: JQuery, Java, C++, C#
     course_jquery: "JQuery",
     course_desc_jquery: "Thư viện JavaScript phát triển trang web",
     learn_course_jquery: "Học JQuery",
@@ -135,7 +130,6 @@ const translations = {
     course_desc_csharp: "Ngôn ngữ lập trình hiện đại từ Microsoft",
     learn_course_csharp: "Học C#",
 
-    // KEY CHO RENDER-EXERCISE.JS
     exercise_html_editor_title: "HTML - Bài tập Code",
     exercise_html_editor_desc: "Thực hành viết code HTML",
     exercise_html_quiz_title: "HTML - Trắc nghiệm",
@@ -149,7 +143,6 @@ const translations = {
     exercise_js_quiz_title: "JavaScript - Trắc nghiệm",
     exercise_js_quiz_desc: "Kiểm tra kiến thức JavaScript",
 
-    // KEY CHO RENDER-REFERENCES.JS
     references_title: "Tài liệu",
     document_link: "[Tài liệu]",
     pdf_link: "[PDF]",
@@ -229,12 +222,10 @@ const translations = {
     lang_zh: "🇨🇳 Simplified Chinese",
     github_link: "github.com/ThangTech",
 
-    // CODE EXAMPLES
     html_code_title: "HTML Tutorial",
     html_code_h1: "This is H1 tag",
     html_code_p: "This is paragraph tag",
 
-    // TUTORIALS
     tutorial_title: "Tutorial",
     category_html: "HTML",
     category_css: "CSS",
@@ -246,7 +237,6 @@ const translations = {
     tutorial_css_syntax: "Learn CSS Syntax",
     tutorial_css_selectors: "Learn CSS Selectors",
 
-    // COURSES CARD
     course_html: "HTML",
     course_desc_html: "Markup language for creating web structures",
     learn_course_html: "Learn HTML",
@@ -279,7 +269,6 @@ const translations = {
     course_desc_bootstrap: "CSS framework for responsive design",
     learn_course_bootstrap: "Learn Bootstrap",
 
-    // THÊM MỚI: JQuery, Java, C++, C#
     course_jquery: "JQuery",
     course_desc_jquery: "JavaScript library for web development",
     learn_course_jquery: "Learn JQuery",
@@ -296,7 +285,6 @@ const translations = {
     course_desc_csharp: "Modern programming language from Microsoft",
     learn_course_csharp: "Learn C#",
 
-    // EXERCISES
     exercise_html_editor_title: "HTML - Code Exercise",
     exercise_html_editor_desc: "Practice writing HTML code",
     exercise_html_quiz_title: "HTML - Quiz",
@@ -310,7 +298,6 @@ const translations = {
     exercise_js_quiz_title: "JavaScript - Quiz",
     exercise_js_quiz_desc: "Test your JavaScript knowledge",
 
-    // REFERENCES
     references_title: "References",
     document_link: "[Document]",
     pdf_link: "[PDF]",
@@ -390,12 +377,10 @@ const translations = {
     lang_zh: "🇨🇳 简体中文",
     github_link: "github.com/ThangTech",
 
-    // CODE EXAMPLES
     html_code_title: "HTML教程",
     html_code_h1: "这是H1标签",
     html_code_p: "这是段落标签",
 
-    // TUTORIALS
     tutorial_title: "教程",
     category_html: "HTML",
     category_css: "CSS",
@@ -407,7 +392,6 @@ const translations = {
     tutorial_css_syntax: "学习CSS语法",
     tutorial_css_selectors: "学习CSS选择器",
 
-    // COURSES CARD
     course_html: "HTML",
     course_desc_html: "用于创建网页结构的标记语言",
     learn_course_html: "学习HTML",
@@ -440,7 +424,6 @@ const translations = {
     course_desc_bootstrap: "响应式设计的CSS框架",
     learn_course_bootstrap: "学习Bootstrap",
 
-    // THÊM MỚI: JQuery, Java, C++, C#
     course_jquery: "JQuery",
     course_desc_jquery: "JavaScript网页开发库",
     learn_course_jquery: "学习JQuery",
@@ -457,7 +440,6 @@ const translations = {
     course_desc_csharp: "微软现代编程语言",
     learn_course_csharp: "学习C#",
 
-    // EXERCISES
     exercise_html_editor_title: "HTML - 代码练习",
     exercise_html_editor_desc: "练习编写HTML代码",
     exercise_html_quiz_title: "HTML - 测验",
@@ -471,7 +453,6 @@ const translations = {
     exercise_js_quiz_title: "JavaScript - 测验",
     exercise_js_quiz_desc: "测试你的JavaScript知识",
 
-    // REFERENCES
     references_title: "参考资料",
     document_link: "[文档]",
     pdf_link: "[PDF]",
@@ -485,7 +466,6 @@ const translations = {
   },
 };
 
-// Phần code còn lại giữ nguyên...
 let currentLang = "vi";
 
 function saveLanguage(lang) {

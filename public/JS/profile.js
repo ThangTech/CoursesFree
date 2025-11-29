@@ -79,8 +79,6 @@ if (completed.length === 0) {
   });
 }
 
-// ========== CHỨC NĂNG CHỈNH SỬA HỒ SƠ ==========
-
 
 function openEditModal() {
   const modal = document.getElementById("edit-modal");
@@ -118,7 +116,6 @@ window.onclick = function (event) {
 function previewAvatar(event) {
   const file = event.target.files[0];
   if (file) {
-    // Kiểm tra kích thước file (tối đa 2MB)
     if (file.size > 2 * 1024 * 1024) {
       alert("Ảnh quá lớn! Vui lòng chọn ảnh dưới 2MB.");
       event.target.value = "";

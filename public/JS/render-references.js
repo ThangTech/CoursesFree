@@ -1,4 +1,3 @@
-// ===== FETCH DỮ LIỆU TỪ JSON =====
 async function fetchReferenceData() {
   try {
     const response = await fetch("./public/data/courses-data.json");
@@ -135,7 +134,7 @@ function setupReferencesButton() {
         referencesContainer.classList.add("nested-navigation-hidden");
       });
     }
-    g;
+    
     document.addEventListener("click", (e) => {
       const isButton = Array.from(referencesButtons).some((btn) =>
         btn.contains(e.target)

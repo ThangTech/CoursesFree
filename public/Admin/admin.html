@@ -1,45 +1,53 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Panel - My Course</title>
-  
-  <!-- CSS chung -->
-  <link rel="stylesheet" href="../CSS/style.css" />
-  <link rel="stylesheet" href="../CSS/darkmode.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="shortcut icon" href="../Storage/Images/icons8-books-emoji-48.png" type="image/x-icon"/>
-  <link rel="stylesheet" href="../Admin/admin.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - My Course</title>
 
-  <div class="admin-container">
-    <div class="admin-header">
-      <h1>Admin Panel</h1>
-      <p>Quản lý người dùng & tiến độ học tập</p>
-    </div>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../Admin/admin.css" />
+    <link rel="stylesheet" href="../CSS/darkmode.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="../Storage/Images/icons8-books-emoji-48.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../Admin/admin.css" />
+  </head>
+  <body>
+    <div class="admin-container">
+      <!-- Header -->
+      <a href="../../index.html" class="back-btn">← Quay lại Trang chủ</a>
 
-    <div class="admin-content">
-      <a href="../../index.html" class="back-btn">
-        ← Quay lại Trang chủ
-      </a>
+      <div class="admin-header">
+        <h1>Admin Panel</h1>
+        <p>Quản lý người dùng & tiến độ học tập</p>
+      </div>
 
       <!-- Thống kê tổng quan -->
       <div class="section">
-        <h2>Thống kê</h2>
+        <h2>hống kê tổng quan</h2>
         <div class="stats">
           <div class="stat-card">
             <div class="stat-number" id="total-users">0</div>
-            <div>Tổng người dùng</div>
+            <div class="stat-label">Tổng người dùng</div>
           </div>
           <div class="stat-card">
             <div class="stat-number" id="total-lessons">0</div>
-            <div>Tổng bài học hoàn thành</div>
+            <div class="stat-label">Tổng bài học hoàn thành</div>
           </div>
           <div class="stat-card">
             <div class="stat-number" id="avg-progress">0%</div>
-            <div>Tiến độ trung bình</div>
+            <div class="stat-label">Tiến độ trung bình</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="active-users">0</div>
+            <div class="stat-label">Người dùng hoạt động (7 ngày)</div>
           </div>
         </div>
       </div>
@@ -47,6 +55,23 @@
       <!-- Danh sách người dùng -->
       <div class="section">
         <h2>Danh sách người dùng</h2>
+
+        <!-- Search và Filter -->
+        <div class="admin-controls">
+          <div class="search-box">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Tìm kiếm theo tên hoặc username..."
+            />
+          </div>
+          <select id="filter-select" class="filter-select">
+            <option value="all">Tất cả người dùng</option>
+            <option value="active">Hoạt động gần đây</option>
+            <option value="inactive">Không hoạt động</option>
+          </select>
+        </div>
+
         <table id="users-table">
           <thead>
             <tr>
@@ -55,14 +80,26 @@
               <th>Bài học hoàn thành</th>
               <th>Hoạt động (7 ngày)</th>
               <th>Ngày đăng ký</th>
+              <th>Trạng thái</th>
               <th>Hành động</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+            <tr>
+              <td colspan="7">
+                <div class="loading">
+                  <div class="spinner"></div>
+                  <p>Đang tải dữ liệu...</p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
-  </div>
-  <script src="../Admin/admin.js"></script>
-</body>
+
+    <!-- Scripts -->
+    <script src="../JS/config.js"></script>
+    <script src="../Admin/admin.js"></script>
+  </body>
 </html>

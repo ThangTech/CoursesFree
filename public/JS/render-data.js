@@ -1,4 +1,3 @@
-// ===== FETCH DỮ LIỆU TỪ JSON =====
 async function fetchCourseData() {
   try {
     const response = await fetch("./public/data/courses-data.json");
@@ -17,17 +16,15 @@ async function fetchCourseData() {
   }
 }
 
-// ===== HÀM CHUẨN HÓA KEY (XỬ LÝ KÝ TỰ ĐẶC BIỆT) =====
 function normalizeKey(text) {
   return text
     .toLowerCase()
     .trim()
-    .replace(/\+\+/g, "plus") // C++ → cplus
-    .replace(/#/g, "sharp") // C# → csharp
+    .replace(/\+\+/g, "plus")
+    .replace(/#/g, "sharp")
     .replace(/\s+/g, "_");
 }
 
-// ===== RENDER TUTORIALS (HƯỚNG DẪN) =====
 function renderTutorials(data) {
   const tutorialContainer = document.getElementById(
     "nested-navigation-container-id"
@@ -76,14 +73,12 @@ function renderTutorials(data) {
 
   console.log("Render tutorials hoàn tất");
 
-  // Dịch sau khi render
   if (typeof translatePage === "function") {
     const lang = window.currentLang || localStorage.getItem("language") || "vi";
     setTimeout(() => translatePage(lang), 0);
   }
 }
 
-// ===== RENDER COURSES (KHÓA HỌC) =====
 function renderCourses(data) {
   const courseContainer = document.querySelector(".course-card");
 
@@ -95,12 +90,11 @@ function renderCourses(data) {
     const courseCard = document.createElement("div");
     courseCard.className = course.backgroundColor;
 
-    // Tạo key dịch chuẩn hóa với xử lý ký tự đặc biệt
     const courseKey = `course_${normalizeKey(course.title)}`;
     const descKey = `course_desc_${normalizeKey(course.title)}`;
     const buttonKey = `learn_course_${normalizeKey(course.title)}`;
 
-    console.log(`Course: ${course.title} → Key: ${courseKey}`); // Debug log
+    console.log(`Course: ${course.title} → Key: ${courseKey}`);
 
     courseCard.innerHTML = `
       <h2 data-translate="${courseKey}">${course.title}</h2>
@@ -115,14 +109,12 @@ function renderCourses(data) {
     courseContainer.appendChild(courseCard);
   });
 
-  // Dịch sau khi render
   if (typeof translatePage === "function") {
     const lang = window.currentLang || localStorage.getItem("language") || "vi";
     setTimeout(() => translatePage(lang), 0);
   }
 }
 
-// ===== KHỞI TẠO ỨNG DỤNG =====
 async function initializeApp() {
   console.log("Ứng dụng đang khởi tạo...");
 

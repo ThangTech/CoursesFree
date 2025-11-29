@@ -17,7 +17,6 @@ document.querySelectorAll(".tab").forEach((tab) => {
   tab.addEventListener("click", () => switchTab(tab.getAttribute("data-form")));
 });
 
-// === ĐĂNG KÝ ===
 document.getElementById("register-btn").addEventListener("click", () => {
   const name = document.getElementById("reg-name").value.trim();
   const username = document
@@ -68,7 +67,6 @@ document.getElementById("register-btn").addEventListener("click", () => {
   setTimeout(() => switchTab("login"), 1500);
 });
 
-// === ĐĂNG NHẬP ===
 document.getElementById("login-btn").addEventListener("click", () => {
   const username = document
     .getElementById("login-username")

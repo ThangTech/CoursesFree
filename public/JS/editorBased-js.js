@@ -1,5 +1,4 @@
-// editorBased-js.js
-const DEFAULT_JS = `// Viết JavaScript code của bạn ở đây\n// Console.log sẽ hiển thị ở bên phải\n\nconsole.log("Xin chào từ JS Editor!");\n\n// Ví dụ: Tạo các phần tử HTML\nconst heading = document.createElement('h1');\nheading.textContent = 'Hello World!';\nheading.style.color = '#4CAF50';\ndocument.body.appendChild(heading);\n\nconst paragraph = document.createElement('p');\nparagraph.textContent = 'Đây là một đoạn văn được tạo bằng JavaScript.';\ndocument.body.appendChild(paragraph);\n\n// Ví dụ: Tạo button\nconst button = document.createElement('button');\nbutton.textContent = 'Click me!';\nbutton.style.padding = '10px 20px';\nbutton.style.margin = '10px 0';\nbutton.style.cursor = 'pointer';\nbutton.onclick = function() {\n  alert('Button được click!');\n};\ndocument.body.appendChild(button);`;
+const DEFAULT_JS = `document.body.appendChild(button);`;
 
 let editor;
 let updateTimeout;
@@ -8,11 +7,9 @@ function initEditor() {
   const editorContainer = document.getElementById("editor");
   const previewFrame = document.getElementById("preview");
 
-  // Lấy nội dung đã lưu hoặc dùng mặc định
   const savedContent = localStorage.getItem("editorBasedContentJS");
   const initialContent = savedContent || DEFAULT_JS;
 
-  // Tạo Ace Editor
   editor = ace.edit(editorContainer);
   editor.setTheme("ace/theme/monokai");
   editor.session.setMode("ace/mode/javascript");
@@ -76,77 +73,45 @@ function initEditor() {
     };
     try {
       ${code}
-    } catch (error) {
-      console.error(error.message);
+    } catch (err) {
+      console.error(err.message);
     }
   </script>
 </body>
-</html>
-    `;
+</html>`;
+
     previewFrame.srcdoc = htmlContent;
   }
 
-  // Lắng nghe sự thay đổi nội dung
   editor.session.on("change", function () {
     clearTimeout(updateTimeout);
+
     updateTimeout = setTimeout(function () {
       updatePreview();
+
       try {
         localStorage.setItem("editorBasedContentJS", editor.getValue());
       } catch (err) {
-        console.log("Không thể lưu vào localStorage");
+        console.log("Cannot save to localStorage");
       }
-    }, 300);
+    }, 500);
   });
 
-  // Phím tắt Ctrl/Cmd + S
   window.addEventListener("keydown", function (e) {
-    const isMac = navigator.platform.toUpperCase().includes("MAC");
-    const modKey = isMac ? e.metaKey : e.ctrlKey;
-    if (modKey && e.key.toLowerCase() === "s") {
+    if ((e.ctrlKey || e.metaKey) && e.key === "s") {
       e.preventDefault();
       try {
         localStorage.setItem("editorBasedContentJS", editor.getValue());
-        const originalShadow = previewFrame.style.boxShadow;
-        previewFrame.style.boxShadow = "0 0 8px rgba(0,200,0,0.7)";
-        setTimeout(function () {
-          previewFrame.style.boxShadow = originalShadow;
-        }, 300);
-        updatePreview();
+        console.log("Saved!");
       } catch (err) {
-        console.log("Không thể lưu");
+        console.log("Cannot save!");
       }
     }
   });
 
-  // Khởi chạy preview lần đầu
   updatePreview();
-
-  window.editorBased = {
-    editor,
-    updatePreview,
-    save: function () {
-      try {
-        localStorage.setItem("editorBasedContentJS", editor.getValue());
-        return true;
-      } catch (e) {
-        return false;
-      }
-    },
-    load: function () {
-      const code = localStorage.getItem("editorBasedContentJS");
-      if (code) {
-        editor.setValue(code, -1);
-      }
-    },
-    clear: function () {
-      localStorage.removeItem("editorBasedContentJS");
-      editor.setValue(DEFAULT_JS, -1);
-    },
-  };
 }
 
-// Đợi Ace Editor load
 if (typeof ace !== "undefined") {
   initEditor();
 } else {

@@ -50,7 +50,6 @@ function renderExercisesList() {
     link.target = "_blank";
     link.style.margin = "20px";
 
-    // Tạo key dịch duy nhất
     const titleKey = `exercise_${exercise.id}_title`;
     const descKey = `exercise_${exercise.id}_desc`;
 

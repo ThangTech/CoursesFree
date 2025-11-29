@@ -1,6 +1,7 @@
-const API_KEY = "AIzaSyCDFYJTXz5y7zaeJ3QruSSUyYeFdjNEdT0";
+const API_KEY = AppConfig.api.youtube.enabled 
+  ? AppConfig.api.youtube.apiKey 
+  : null;
 
-// Lấy videoId từ URL
 const urlParams = new URLSearchParams(window.location.search);
 const videoId = urlParams.get("v");
 const topic = urlParams.get("topic") || "html tutorial";
@@ -10,7 +11,6 @@ if (!videoId) {
   window.location.href = "./index.html#video";
 }
 
-// Load YouTube iframe
 document.getElementById("video-player").innerHTML = `
       <iframe 
         src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
@@ -19,8 +19,20 @@ document.getElementById("video-player").innerHTML = `
       </iframe>
     `;
 
-// Fetch video details
 async function loadVideoDetails() {
+  if (!API_KEY) {
+    console.warn("YouTube API disabled");
+    document.getElementById("video-title").textContent = topic || "Video Tutorial";
+    document.getElementById("video-views").textContent = "N/A";
+    document.getElementById("video-date").textContent = "N/A";
+    document.getElementById("video-duration").textContent = "N/A";
+    document.getElementById("channel-name").textContent = "YouTube Channel";
+    document.getElementById("channel-subscribers").textContent = "Subscribe";
+    document.getElementById("video-description").textContent = 
+      "Bật YouTube API trong config.js để xem chi tiết video";
+    return;
+  }
+
   try {
     const response = await fetch(
       `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=${videoId}&key=${API_KEY}`
@@ -49,7 +61,6 @@ async function loadVideoDetails() {
       document.getElementById("video-description").textContent =
         snippet.description || "Không có mô tả";
 
-      // Set channel avatar
       const firstLetter = snippet.channelTitle.charAt(0).toUpperCase();
       document.getElementById("channel-avatar").textContent = firstLetter;
     }
@@ -57,6 +68,7 @@ async function loadVideoDetails() {
     console.error("Error loading video details:", error);
   }
 }
+
 function initSearch() {
   const searchInput = document.getElementById("search-input");
   const searchBtn = document.getElementById("search-btn");
@@ -76,8 +88,12 @@ function initSearch() {
   });
 }
 
-// Search videos function
 async function searchVideos(query) {
+  if (!API_KEY) {
+    alert("YouTube API chưa được cấu hình");
+    return;
+  }
+
   try {
     const response = await fetch(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(
@@ -93,7 +109,6 @@ async function searchVideos(query) {
   }
 }
 
-// Display search results
 function displaySearchResults(videos, query) {
   const container = document.getElementById("related-videos");
   const title = document.createElement("h3");
@@ -109,7 +124,6 @@ function displaySearchResults(videos, query) {
       container.appendChild(videoCard);
     });
 
-    // Add back button
     const backBtn = document.createElement("button");
     backBtn.textContent = "← Quay lại video liên quan";
     backBtn.className = "back-btn";
@@ -123,8 +137,20 @@ function displaySearchResults(videos, query) {
     container.innerHTML += "<p>Không tìm thấy video nào</p>";
   }
 }
-// Fetch related videos
+
 async function loadRelatedVideos() {
+  if (!API_KEY) {
+    document.getElementById("related-videos").innerHTML = `
+      <div style="padding: 20px; text-align: center; color: #666;">
+        <p>YouTube API chưa được cấu hình</p>
+        <p style="font-size: 14px; margin-top: 10px;">
+          Để xem video liên quan, vui lòng bật YouTube API trong config.js
+        </p>
+      </div>
+    `;
+    return;
+  }
+
   try {
     const response = await fetch(
       `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(
@@ -189,7 +215,7 @@ function formatViews(views) {
 function formatDate(dateString) {
   const date = new Date(dateString);
   const now = new Date();
-  const diff = Math.floor((now - date) / 1000); // seconds
+  const diff = Math.floor((now - date) / 1000);
 
   if (diff < 60) return "Vừa xong";
   if (diff < 3600) return Math.floor(diff / 60) + " phút trước";
@@ -213,7 +239,6 @@ function formatDuration(duration) {
   return `${minutes || "0"}:${seconds.padStart(2, "0")}`;
 }
 
-// Load data
 document.addEventListener("DOMContentLoaded", function () {
   loadVideoDetails();
   loadRelatedVideos();
