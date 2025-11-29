@@ -1,3 +1,225 @@
+var searchData = null;
+var internalLinks = {
+  'html': './public/Pages/Exercises/editorBased-html.html',
+  'css': './public/Pages/Exercises/editorBased-html.html',
+  'javascript': './public/Pages/Exercises/editorBased-js.html',
+  'js': './public/Pages/Exercises/editorBased-js.html',
+  'python': './public/Pages/Exercises/editorBased-python.html',
+  'html editor': './public/Pages/Exercises/html-editor.html',
+  'css editor': './public/Pages/Exercises/css-editor.html',
+  'js editor': './public/Pages/Exercises/js-editor.html',
+  'html quiz': './public/Pages/Exercises/html-quiz.html',
+  'css quiz': './public/Pages/Exercises/css-quiz.html',
+  'javascript quiz': './public/Pages/Exercises/js-quiz.html',
+  'templates': './public/Pages/templates.html',
+  'feedback': './public/Pages/feedback.html',
+  'support': './public/Pages/support.html',
+  'about': './public/Pages/aboutus.html',
+  'profile': './public/Pages/profile.html',
+  'login': './public/Pages/login.html'
+};
+
+async function loadSearchData() {
+  try {
+    const response = await fetch('./public/data/courses-data.json');
+    searchData = await response.json();
+  } catch (error) {
+    console.error('Loi khi tai du lieu tim kiem:', error);
+  }
+}
+
+function getInternalLink(name) {
+  var nameLower = name.toLowerCase();
+  for (var key in internalLinks) {
+    if (nameLower.indexOf(key) !== -1) {
+      return internalLinks[key];
+    }
+  }
+  return null;
+}
+
+function performSearch(query) {
+  if (!searchData || !query) {
+    hideSearchResults();
+    return;
+  }
+
+  query = query.toLowerCase().trim();
+  var results = [];
+
+  var exercises = [
+    { name: 'HTML - Bai tap Code', url: './public/Pages/Exercises/html-editor.html', type: 'Bai tap' },
+    { name: 'HTML - Trac nghiem', url: './public/Pages/Exercises/html-quiz.html', type: 'Bai tap' },
+    { name: 'CSS - Bai tap Code', url: './public/Pages/Exercises/css-editor.html', type: 'Bai tap' },
+    { name: 'CSS - Trac nghiem', url: './public/Pages/Exercises/css-quiz.html', type: 'Bai tap' },
+    { name: 'JavaScript - Bai tap Code', url: './public/Pages/Exercises/js-editor.html', type: 'Bai tap' },
+    { name: 'JavaScript - Trac nghiem', url: './public/Pages/Exercises/js-quiz.html', type: 'Bai tap' },
+    { name: 'HTML Editor', url: './public/Pages/Exercises/editorBased-html.html', type: 'Cong cu' },
+    { name: 'JavaScript Editor', url: './public/Pages/Exercises/editorBased-js.html', type: 'Cong cu' },
+    { name: 'Python Editor', url: './public/Pages/Exercises/editorBased-python.html', type: 'Cong cu' }
+  ];
+
+  for (var i = 0; i < exercises.length; i++) {
+    if (exercises[i].name.toLowerCase().indexOf(query) !== -1) {
+      results.push(exercises[i]);
+    }
+  }
+
+  var pages = [
+    { name: 'Mau trang web', url: './public/Pages/templates.html', type: 'Trang', description: 'Kham pha cac mau HTML mien phi' },
+    { name: 'Phan hoi', url: './public/Pages/feedback.html', type: 'Trang', description: 'Gui phan hoi cho chung toi' },
+    { name: 'Ho tro', url: './public/Pages/support.html', type: 'Trang', description: 'Cau hoi thuong gap' },
+    { name: 'Ve chung toi', url: './public/Pages/aboutus.html', type: 'Trang', description: 'Thong tin ve website' },
+    { name: 'Ho so hoc tap', url: './public/Pages/profile.html', type: 'Trang', description: 'Xem tien do hoc tap' }
+  ];
+
+  for (var i = 0; i < pages.length; i++) {
+    if (pages[i].name.toLowerCase().indexOf(query) !== -1) {
+      results.push(pages[i]);
+    }
+  }
+
+  if (searchData.tutorials) {
+    for (var i = 0; i < searchData.tutorials.length; i++) {
+      var tutorial = searchData.tutorials[i];
+      for (var j = 0; j < tutorial.items.length; j++) {
+        var item = tutorial.items[j];
+        if (item.name.toLowerCase().indexOf(query) !== -1 || 
+            tutorial.category.toLowerCase().indexOf(query) !== -1) {
+          var internalUrl = getInternalLink(item.name);
+          results.push({
+            type: 'Tutorial',
+            category: tutorial.category,
+            name: item.name,
+            url: internalUrl || item.url,
+            isInternal: !!internalUrl
+          });
+        }
+      }
+    }
+  }
+
+  if (searchData.courses) {
+    for (var i = 0; i < searchData.courses.length; i++) {
+      var course = searchData.courses[i];
+      if (course.title.toLowerCase().indexOf(query) !== -1 || 
+          course.description.toLowerCase().indexOf(query) !== -1) {
+        var internalUrl = getInternalLink(course.title);
+        results.push({
+          type: 'Khoa hoc',
+          name: course.title,
+          description: course.description,
+          url: internalUrl || course.links.official || course.links.tutorial,
+          isInternal: !!internalUrl
+        });
+      }
+    }
+  }
+
+  displaySearchResults(results, query);
+}
+
+function displaySearchResults(results, query) {
+  var container = document.getElementById('search-results-container');
+  
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'search-results-container';
+    container.className = 'search-results-overlay';
+    document.body.appendChild(container);
+  }
+
+  if (results.length === 0) {
+    container.innerHTML = 
+      '<div class="search-results-box">' +
+        '<div class="search-results-header">' +
+          '<h3>Ket qua tim kiem cho: "' + query + '"</h3>' +
+          '<button onclick="hideSearchResults()" class="close-search">×</button>' +
+        '</div>' +
+        '<div class="search-results-body">' +
+          '<p class="no-results">Khong tim thay ket qua nao</p>' +
+        '</div>' +
+      '</div>';
+  } else {
+    var resultsHTML = '';
+    for (var i = 0; i < results.length; i++) {
+      var result = results[i];
+      var target = result.isInternal ? '' : ' target="_blank"';
+      resultsHTML += 
+        '<div class="search-result-item">' +
+          '<span class="result-type">' + result.type + '</span>' +
+          '<a href="' + result.url + '"' + target + '>' +
+            '<h4>' + result.name + '</h4>' +
+            (result.category ? '<p class="result-category">' + result.category + '</p>' : '') +
+            (result.description ? '<p class="result-desc">' + result.description + '</p>' : '') +
+          '</a>' +
+        '</div>';
+    }
+
+    container.innerHTML = 
+      '<div class="search-results-box">' +
+        '<div class="search-results-header">' +
+          '<h3>Tim thay ' + results.length + ' ket qua cho: "' + query + '"</h3>' +
+          '<button onclick="hideSearchResults()" class="close-search">×</button>' +
+        '</div>' +
+        '<div class="search-results-body">' +
+          resultsHTML +
+        '</div>' +
+      '</div>';
+  }
+
+  container.style.display = 'flex';
+}
+
+function hideSearchResults() {
+  var container = document.getElementById('search-results-container');
+  if (container) {
+    container.style.display = 'none';
+  }
+}
+
+function initializeSearch() {
+  loadSearchData();
+
+  var searchInput = document.querySelector('.section-heading-search input');
+  var searchIcon = document.querySelector('.section-heading-search i');
+  var headerSearchIcon = document.querySelector('.toggleSearch');
+
+  if (searchInput) {
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        performSearch(this.value);
+      }
+    });
+  }
+
+  if (searchIcon) {
+    searchIcon.addEventListener('click', function() {
+      if (searchInput) {
+        performSearch(searchInput.value);
+      }
+    });
+  }
+
+  if (headerSearchIcon) {
+    headerSearchIcon.addEventListener('click', function() {
+      if (searchInput) {
+        searchInput.focus();
+        searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  }
+
+  document.addEventListener('click', function(e) {
+    var container = document.getElementById('search-results-container');
+    if (container && e.target === container) {
+      hideSearchResults();
+    }
+  });
+}
+
+window.hideSearchResults = hideSearchResults;
+
 const menuBtnMobile = document.getElementById("menu-btn-Mobile");
 const mobileMenuNav = document.getElementById("mobile-menu-nav");
 const mobileNavClose = document.getElementById("mobile-nav-close");
@@ -315,32 +537,6 @@ document.addEventListener("click", function (e) {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const chatbotLauncher = document.getElementById("chatbot-launcher");
-  let chatbotWindow = null;
-
-  if (chatbotLauncher) {
-    chatbotLauncher.addEventListener("click", function () {
-      if (chatbotWindow && !chatbotWindow.closed) {
-        chatbotWindow.focus();
-      } else {
-        chatbotWindow = window.open(
-          "./public/Pages/chatbotAI.html",
-          "MyCoursesChatbot",
-          "width=420,height=700,scrollbars=no,resizable=yes,left=" +
-            (screen.width - 420) +
-            ",top=100"
-        );
-      }
-    });
-    window.addEventListener("beforeunload", function () {
-      if (chatbotWindow && !chatbotWindow.closed) {
-        chatbotWindow.close();
-      }
-    });
-  }
-});
-
 document.addEventListener('DOMContentLoaded', () => {
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
   const authContainer = document.getElementById('auth-container');
@@ -371,3 +567,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 }
 });
+
+document.addEventListener('DOMContentLoaded', initializeSearch);
