@@ -1,3 +1,11 @@
+// Inline AppConfig để tránh phụ thuộc file riêng biệt
+const AppConfig = {
+  admin: {
+    defaultUsername: "admin",
+    defaultPassword: "admin123",
+  }
+};
+
 function checkAdminAccess() {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 

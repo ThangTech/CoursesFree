@@ -14,8 +14,18 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
     ></script>
-    <script src="../JS/config.js"></script>
     <script type="text/javascript">
+      // Inline AppConfig
+      const AppConfig = {
+        api: {
+          emailjs: {
+            publicKey: "Rc4kZ8c8pIjFSmBpy",
+            serviceId: "service_d9c9m0s",
+            templateId: "template_ln681q9",
+          }
+        }
+      };
+      
       (function () {
         // Sử dụng config thay vì hardcode
         emailjs.init(AppConfig.api.emailjs.publicKey);

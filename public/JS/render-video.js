@@ -1,3 +1,13 @@
+// Inline AppConfig để tránh phụ thuộc file riêng biệt
+const AppConfig = {
+  api: {
+    youtube: {
+      apiKey: "AIzaSyCDFYJTXz5y7zaeJ3QruSSUyYeFdjNEdT0",
+      enabled: true,
+    }
+  }
+};
+
 const API_KEY = AppConfig.api.youtube.enabled 
   ? AppConfig.api.youtube.apiKey 
   : null;
